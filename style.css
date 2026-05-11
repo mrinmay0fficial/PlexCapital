@@ -1,111 +1,144 @@
-/* 2026 Modern Financial UI Palette */
 :root {
-    --navy: #0f172a;
-    --slate: #1e293b;
-    --teal: #2dd4bf;
-    --white: #f8fafc;
-    --gray: #94a3b8;
-    --glass: rgba(30, 41, 59, 0.7);
+    --bg: #020617;
+    --card: #0f172a;
+    --primary: #2dd4bf;
+    --accent: #38bdf8;
+    --text: #f8fafc;
+    --muted: #64748b;
+    --border: rgba(255, 255, 255, 0.1);
 }
 
-* { box-sizing: border-box; transition: all 0.3s ease; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    background-color: var(--navy);
-    color: var(--white);
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    line-height: 1.6;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.5;
+    overflow-x: hidden;
 }
 
-/* Navigation */
-nav {
+/* Nav */
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 10%;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 1.5rem 8%;
+    border-bottom: 1px solid var(--border);
 }
 
-.logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; }
-.logo span { color: var(--teal); }
+.logo { font-size: 1.5rem; font-weight: 800; }
+.logo span { color: var(--primary); }
 
 .nav-links a {
-    color: var(--white);
+    color: var(--text);
     text-decoration: none;
     margin-left: 2rem;
+    font-size: 0.9rem;
     font-weight: 600;
 }
 
-.btn-sm {
-    background: var(--teal);
-    color: var(--navy) !important;
-    padding: 0.5rem 1.2rem;
-    border-radius: 6px;
+.btn-main {
+    background: var(--primary);
+    color: var(--bg) !important;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
 }
 
-/* Hero Section */
-.hero {
+/* Hero */
+.hero-section {
+    padding: 8rem 8% 4rem;
     text-align: center;
-    padding: 6rem 10% 4rem;
 }
 
-.hero h1 { font-size: 3.5rem; margin-bottom: 1rem; letter-spacing: -2px; }
-.highlight { color: var(--teal); }
-.hero p { font-size: 1.2rem; color: var(--gray); max-width: 600px; margin: 0 auto; }
-
-/* Calculator Section */
-.calculator-container {
-    padding: 0 10% 10rem;
+.badge {
+    background: rgba(45, 212, 191, 0.1);
+    color: var(--primary);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
 }
+
+.hero-section h1 {
+    font-size: 4rem;
+    margin: 1.5rem 0;
+    letter-spacing: -2px;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-section p {
+    color: var(--muted);
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Glass Card */
+.main-stage { padding-bottom: 8rem; }
 
 .glass-card {
-    background: var(--glass);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 3rem;
-    border-radius: 24px;
-    max-width: 550px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    max-width: 600px;
     margin: 0 auto;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    padding: 3rem;
+    border-radius: 32px;
+    box-shadow: 0 40px 100px -20px rgba(0,0,0,0.7);
 }
 
-.input-group {
-    margin-bottom: 1.5rem;
-    text-align: left;
-}
+.card-header { text-align: center; margin-bottom: 2rem; }
+.card-header h2 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+.card-header p { color: var(--muted); font-size: 0.9rem; }
 
-label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--gray); }
+.input-grid { display: grid; gap: 1.5rem; margin-bottom: 2rem; }
+label { display: block; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--muted); }
 
 input, select {
     width: 100%;
     padding: 1rem;
-    background: var(--navy);
-    border: 1px solid var(--slate);
-    color: white;
+    background: #1e293b;
+    border: 1px solid var(--border);
     border-radius: 12px;
+    color: white;
     font-size: 1rem;
 }
 
-.calc-btn {
+.primary-button {
     width: 100%;
     padding: 1.2rem;
-    background: var(--teal);
-    color: var(--navy);
+    background: var(--primary);
     border: none;
     border-radius: 12px;
+    color: var(--bg);
     font-weight: 800;
     font-size: 1.1rem;
     cursor: pointer;
-    margin-top: 1rem;
 }
 
-.calc-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(45, 212, 191, 0.3); }
+.primary-button:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
 
-/* Results */
-#results-area { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--slate); text-align: center; }
-#net-display { font-size: 2.5rem; color: var(--teal); margin: 0.5rem 0; }
+/* Output Area */
 .hidden { display: none; }
+#outputContainer { margin-top: 2.5rem; border-top: 1px solid var(--border); padding-top: 2rem; text-align: center; }
+.result-box h3 { font-size: 3rem; color: var(--primary); margin: 0.5rem 0; }
+.data-breakdown { color: var(--muted); font-size: 0.85rem; }
 
 /* Footer */
-footer { text-align: center; padding: 4rem; color: var(--gray); border-top: 1px solid var(--slate); }
+footer {
+    padding: 4rem 8%;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+.logo-small { font-weight: 800; margin-bottom: 1rem; }
+.logo-small span { color: var(--primary); }
+.disclaimer { font-size: 0.75rem; color: var(--muted); margin-top: 2rem; max-width: 800px; margin-left: auto; margin-right: auto; }
