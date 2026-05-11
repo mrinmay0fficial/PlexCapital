@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ShiftCapital: High-precision financial strategies and tax optimization for the 2026 global economy.">
+    <title>ShiftCapital | Financial Authority Hub</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Shift<span>Capital</span></div>
+        <div class="nav-links">
+            <a href="#">Tax Guides</a>
+            <a href="#">Calculators</a>
+            <a href="#" class="btn-sm">Join Insider</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Financial Clarity for the <span class="highlight">New Economy.</span></h1>
+        <p>Data-driven insights for digital professionals and global entrepreneurs.</p>
+    </header>
+
+    <section class="calculator-container">
+        <div class="glass-card">
+            <h2>Net Income Optimizer</h2>
+            <p>Calculate your real purchasing power based on 2026 projected tax brackets.</p>
+            
+            <div class="input-group">
+                <label>Annual Gross Income ($)</label>
+                <input type="number" id="income" placeholder="e.g. 120000">
+            </div>
+
+            <div class="input-group">
+                <label>Tax Jurisdiction</label>
+                <select id="jurisdiction">
+                    <option value="0.28">United States (Est. Federal + State)</option>
+                    <option value="0.42">United Kingdom (Higher Rate)</option>
+                    <option value="0.15">Portugal (NHR Scheme)</option>
+                    <option value="0.09">UAE (Corporate/High Earner)</option>
+                </select>
+            </div>
+
+            <button class="calc-btn" onclick="runOptimization()">Analyze Net Value</button>
+
+            <div id="results-area" class="hidden">
+                <p>Your Estimated Take-Home:</p>
+                <h3 id="net-display">$0.00</h3>
+                <small id="math-note"></small>
+            </div>
+        </div>
+    </section>
+
+    <footer class="legal-footer">
+        <p>&copy; 2026 ShiftCapital. All Rights Reserved.</p>
+        <p><small>Disclaimer: This site provides financial data for informational purposes only. Consult a certified professional for tax advice.</small></p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
