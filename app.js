@@ -1,39 +1,41 @@
 /**
- * ShiftCapital - Optimization Logic
- * Data Scientist Approach: Applying tax models to user input
+ * PlexCapital Data Modeling Engine
+ * Version: 1.0.2 - 2026 Refactor
  */
 
-function runOptimization() {
-    const incomeInput = document.getElementById('income').value;
-    const taxRate = document.getElementById('jurisdiction').value;
-    const displayArea = document.getElementById('results-area');
-    const netDisplay = document.getElementById('net-display');
-    const mathNote = document.getElementById('math-note');
+function calculateWealth() {
+    // 1. Capture user inputs
+    const grossIncome = document.getElementById('incomeInput').value;
+    const taxRate = document.getElementById('taxZone').value;
+    
+    // 2. Element references
+    const outputContainer = document.getElementById('outputContainer');
+    const netDisplay = document.getElementById('netResult');
+    const dataNote = document.getElementById('dataNote');
 
-    // Validation
-    if (!incomeInput || incomeInput <= 0) {
-        alert("Please enter a valid annual income to run the simulation.");
+    // 3. Input Validation Logic
+    if (!grossIncome || grossIncome <= 0) {
+        alert("Please enter a valid revenue figure for the data model.");
         return;
     }
 
-    // Mathematical Model: Net = Gross * (1 - Rate)
-    const gross = parseFloat(incomeInput);
-    const net = gross * (1 - parseFloat(taxRate));
+    // 4. Data Science Model (Net = Gross * (1 - Tax))
+    const netValue = parseFloat(grossIncome) * (1 - parseFloat(taxRate));
 
-    // Formatter for Currency
-    const formatter = new Intl.NumberFormat('en-US', {
+    // 5. Professional Currency Formatting
+    const currencyFormat = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD',
         maximumFractionDigits: 0
     });
 
-    // Reveal results with an animation effect (CSS transition)
-    displayArea.classList.remove('hidden');
-    netDisplay.innerText = formatter.format(net);
+    // 6. Output Processing
+    outputContainer.classList.remove('hidden');
+    netDisplay.innerText = currencyFormat.format(netValue);
     
-    // Provide data context
-    const taxPercent = (parseFloat(taxRate) * 100).toFixed(0);
-    mathNote.innerText = `Calculation includes estimated ${taxPercent}% effective rate.`;
-    
-    console.log(`Optimization completed: Gross ${gross} -> Net ${net}`);
+    const taxPercentage = (parseFloat(taxRate) * 100).toFixed(0);
+    dataNote.innerText = `Simulation based on a ${taxPercentage}% effective tax model in the selected 2026 jurisdiction.`;
+
+    // Developer log
+    console.log(`Model executed. Net Value: ${netValue}`);
 }
