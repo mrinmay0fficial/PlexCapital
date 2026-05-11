@@ -1,0 +1,111 @@
+/* 2026 Modern Financial UI Palette */
+:root {
+    --navy: #0f172a;
+    --slate: #1e293b;
+    --teal: #2dd4bf;
+    --white: #f8fafc;
+    --gray: #94a3b8;
+    --glass: rgba(30, 41, 59, 0.7);
+}
+
+* { box-sizing: border-box; transition: all 0.3s ease; }
+
+body {
+    background-color: var(--navy);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 10%;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; }
+.logo span { color: var(--teal); }
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-weight: 600;
+}
+
+.btn-sm {
+    background: var(--teal);
+    color: var(--navy) !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 6rem 10% 4rem;
+}
+
+.hero h1 { font-size: 3.5rem; margin-bottom: 1rem; letter-spacing: -2px; }
+.highlight { color: var(--teal); }
+.hero p { font-size: 1.2rem; color: var(--gray); max-width: 600px; margin: 0 auto; }
+
+/* Calculator Section */
+.calculator-container {
+    padding: 0 10% 10rem;
+}
+
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 3rem;
+    border-radius: 24px;
+    max-width: 550px;
+    margin: 0 auto;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--gray); }
+
+input, select {
+    width: 100%;
+    padding: 1rem;
+    background: var(--navy);
+    border: 1px solid var(--slate);
+    color: white;
+    border-radius: 12px;
+    font-size: 1rem;
+}
+
+.calc-btn {
+    width: 100%;
+    padding: 1.2rem;
+    background: var(--teal);
+    color: var(--navy);
+    border: none;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.calc-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(45, 212, 191, 0.3); }
+
+/* Results */
+#results-area { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--slate); text-align: center; }
+#net-display { font-size: 2.5rem; color: var(--teal); margin: 0.5rem 0; }
+.hidden { display: none; }
+
+/* Footer */
+footer { text-align: center; padding: 4rem; color: var(--gray); border-top: 1px solid var(--slate); }
