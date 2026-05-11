@@ -3,107 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="PlexCapital: Advanced financial optimization and tax intelligence for the 2026 global economy.">
-    <title>PlexCapital | Financial Authority Hub</title>
+    <meta name="description" content="PlexCapital | Premium Financial Intelligence & Tax Optimization Dashboard.">
+    <title>PlexCapital — Financial Intelligence Hub</title>
     
     <link rel="stylesheet" href="./style.css">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="logo">Plex<span>Capital</span></div>
+        <div class="logo-group">
+            <div class="logo">Plex<span>Capital</span></div>
+            <div class="status-indicator">
+                <span class="dot"></span>
+                <span class="status-text">Live Market Data</span>
+            </div>
+        </div>
         <div class="nav-links">
-            <a href="#calculator">Optimizer</a>
-            <a href="#guides">Intelligence</a>
-            <a href="#" class="btn-main">Get Analysis</a>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#intelligence">Intelligence</a>
+            <a href="#" class="btn-premium">Access Pro</a>
         </div>
     </nav>
 
-    <header class="hero-section">
-        <div class="hero-content">
-            <span class="badge">Engineered for 2026</span>
-            <h1>Complexity Simplified. <br><span class="gradient-text">Wealth Optimized.</span></h1>
-            <p>Data-driven tax strategies and financial modeling for the modern global professional.</p>
-        </div>
+    <header class="hero">
+        <div class="badge">Version 2.0.26 — Data Density Edition</div>
+        <h1>Master Your <span class="gradient">Net Value.</span></h1>
+        <p>High-precision financial modeling for global professionals navigating the new economy.</p>
     </header>
 
-    <section id="calculator" class="main-stage">
-        <div class="glass-card">
-            <div class="card-header">
-                <h2>Net Value Simulator</h2>
-                <p>Simulate your 2026 take-home pay across top-tier jurisdictions.</p>
-            </div>
+    <main id="dashboard" class="workspace">
+        <div class="dashboard-grid">
             
-            <div class="input-grid">
-                <div class="field">
-                    <label>Annual Gross Revenue ($)</label>
-                    <input type="number" id="incomeInput" placeholder="e.g. 150000" min="0">
+            <div class="panel control-panel">
+                <div class="panel-header">
+                    <h3>Simulation Parameters</h3>
                 </div>
+                
+                <div class="input-stack">
+                    <div class="input-box">
+                        <label>Annual Gross Revenue (USD)</label>
+                        <div class="input-field">
+                            <span class="unit">$</span>
+                            <input type="number" id="incomeInput" placeholder="150,000">
+                        </div>
+                    </div>
 
-                <div class="field">
-                    <label>Optimization Target</label>
-                    <select id="taxZone">
-                        <option value="0.25">Standard Hub (25%)</option>
-                        <option value="0.15">Optimization Tier (15%)</option>
-                        <option value="0.09">Emerging Market (9%)</option>
-                        <option value="0.45">High-Tax Zone (45%)</option>
-                    </select>
+                    <div class="input-box">
+                        <label>Jurisdiction Optimization</label>
+                        <select id="taxZone">
+                            <option value="0.28">Tier 1 — High Infrastructure (28%)</option>
+                            <option value="0.15">Tier 2 — Optimization Hub (15%)</option>
+                            <option value="0.09">Tier 3 — Emerging Market (9%)</option>
+                            <option value="0.00">Tier 4 — Zero Tax Zone (0%)</option>
+                        </select>
+                    </div>
+                    
+                    <button class="action-btn" onclick="runAnalysis()">Execute Analysis</button>
                 </div>
             </div>
 
-            <button class="primary-button" onclick="calculateWealth()">Run Data Model</button>
+            <div class="panel analysis-panel" id="analysisDisplay">
+                <div class="panel-header">
+                    <h3>Analysis Output</h3>
+                </div>
+                
+                <div class="result-hero">
+                    <small>Projected Net Annual Value</small>
+                    <h2 id="netResult">$0.00</h2>
+                </div>
 
-            <div id="outputContainer" class="hidden">
-                <div class="result-box">
-                    <small>Estimated Net Annual Income</small>
-                    <h3 id="netResult">$0</h3>
+                <div class="chart-container">
+                    <canvas id="wealthChart"></canvas>
                 </div>
-                <div class="data-breakdown">
-                    <p id="dataNote"></p>
+
+                <div class="metrics-grid">
+                    <div class="metric">
+                        <span>Tax Liability</span>
+                        <p id="taxValue">$0</p>
+                    </div>
+                    <div class="metric">
+                        <span>Retention Score</span>
+                        <p id="retentionScore">0%</p>
+                    </div>
                 </div>
+            </div>
+
+        </div>
+    </main>
+
+    <section id="intelligence" class="content-hub">
+        <div class="hub-header">
+            <h2>Financial Intelligence Pillars</h2>
+        </div>
+        <div class="pillar-grid">
+            <div class="card">
+                <div class="card-icon">📁</div>
+                <h4>Global Tax Atlas</h4>
+                <p>2026 residency data for digital professionals.</p>
+                <a href="#">Explore Database →</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">🛡️</div>
+                <h4>Wealth Structuring</h4>
+                <p>Asset protection models and smart-ledgers.</p>
+                <span class="tag-soon">In Review</span>
+            </div>
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h4>Market Arbitrage</h4>
+                <p>Purchasing power parity reports for 40+ countries.</p>
+                <a href="#">View Report →</a>
             </div>
         </div>
     </section>
-    <section id="guides" class="pillar-section">
-    <div class="section-title">
-        <span class="badge">Intelligence Hub</span>
-        <h2>Explore our Financial Pillars</h2>
-    </div>
-    
-    <div class="pillar-grid">
-        <div class="pillar-card">
-            <div class="icon">🌍</div>
-            <h3>Global Tax Atlas</h3>
-            <p>Deep-dives into NHR, Digital Nomad Visas, and 2026 tax treaties.</p>
-            <a href="#" class="text-link">Read Guides →</a>
-        </div>
-        
-        <div class="pillar-card">
-            <div class="icon">📈</div>
-            <h3>Wealth Systems</h3>
-            <p>Compound interest models and decentralized investment strategies.</p>
-            <a href="#" class="text-link">Explore Models →</a>
-        </div>
-        
-        <div class="pillar-card">
-            <div class="icon">🛡️</div>
-            <h3>Risk Management</h3>
-            <p>Protecting assets in a volatile, borderless digital economy.</p>
-            <a href="#" class="text-link">View Reports →</a>
-        </div>
-    </div>
-</section>
 
-    <footer class="site-footer">
-        <div class="footer-top">
-            <div class="logo-small">Plex<span>Capital</span></div>
-            <p>Precise. Borderless. Authoritative.</p>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">Plex<span>Capital</span></div>
+            <p>Precise. Authoritative. Standalone.</p>
         </div>
         <div class="disclaimer">
-            <p><strong>Disclaimer:</strong> PlexCapital provides data-driven simulations for informational purposes only. We are not certified financial advisors. Please consult a local professional for specific tax legalities.</p>
-            <p>&copy; 2026 PlexCapital Digital Infrastructure.</p>
+            Information provided by PlexCapital is for simulation purposes only. Consult with a qualified professional for tax and legal advice. &copy; 2026.
         </div>
     </footer>
 
