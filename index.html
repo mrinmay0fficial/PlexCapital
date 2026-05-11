@@ -3,64 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ShiftCapital: High-precision financial strategies and tax optimization for the 2026 global economy.">
-    <title>ShiftCapital | Financial Authority Hub</title>
+    <meta name="description" content="PlexCapital: Advanced financial optimization and tax intelligence for the 2026 global economy.">
+    <title>PlexCapital | Financial Authority Hub</title>
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav>
-        <div class="logo">Shift<span>Capital</span></div>
+    <nav class="navbar">
+        <div class="logo">Plex<span>Capital</span></div>
         <div class="nav-links">
-            <a href="#">Tax Guides</a>
-            <a href="#">Calculators</a>
-            <a href="#" class="btn-sm">Join Insider</a>
+            <a href="#calculator">Optimizer</a>
+            <a href="#guides">Intelligence</a>
+            <a href="#" class="btn-main">Get Analysis</a>
         </div>
     </nav>
 
-    <header class="hero">
-        <h1>Financial Clarity for the <span class="highlight">New Economy.</span></h1>
-        <p>Data-driven insights for digital professionals and global entrepreneurs.</p>
+    <header class="hero-section">
+        <div class="hero-content">
+            <span class="badge">Engineered for 2026</span>
+            <h1>Complexity Simplified. <br><span class="gradient-text">Wealth Optimized.</span></h1>
+            <p>Data-driven tax strategies and financial modeling for the modern global professional.</p>
+        </div>
     </header>
 
-    <section class="calculator-container">
+    <section id="calculator" class="main-stage">
         <div class="glass-card">
-            <h2>Net Income Optimizer</h2>
-            <p>Calculate your real purchasing power based on 2026 projected tax brackets.</p>
+            <div class="card-header">
+                <h2>Net Value Simulator</h2>
+                <p>Simulate your 2026 take-home pay across top-tier jurisdictions.</p>
+            </div>
             
-            <div class="input-group">
-                <label>Annual Gross Income ($)</label>
-                <input type="number" id="income" placeholder="e.g. 120000">
+            <div class="input-grid">
+                <div class="field">
+                    <label>Annual Gross Revenue ($)</label>
+                    <input type="number" id="incomeInput" placeholder="e.g. 150000" min="0">
+                </div>
+
+                <div class="field">
+                    <label>Optimization Target</label>
+                    <select id="taxZone">
+                        <option value="0.25">Standard Hub (25%)</option>
+                        <option value="0.15">Optimization Tier (15%)</option>
+                        <option value="0.09">Emerging Market (9%)</option>
+                        <option value="0.45">High-Tax Zone (45%)</option>
+                    </select>
+                </div>
             </div>
 
-            <div class="input-group">
-                <label>Tax Jurisdiction</label>
-                <select id="jurisdiction">
-                    <option value="0.28">United States (Est. Federal + State)</option>
-                    <option value="0.42">United Kingdom (Higher Rate)</option>
-                    <option value="0.15">Portugal (NHR Scheme)</option>
-                    <option value="0.09">UAE (Corporate/High Earner)</option>
-                </select>
-            </div>
+            <button class="primary-button" onclick="calculateWealth()">Run Data Model</button>
 
-            <button class="calc-btn" onclick="runOptimization()">Analyze Net Value</button>
-
-            <div id="results-area" class="hidden">
-                <p>Your Estimated Take-Home:</p>
-                <h3 id="net-display">$0.00</h3>
-                <small id="math-note"></small>
+            <div id="outputContainer" class="hidden">
+                <div class="result-box">
+                    <small>Estimated Net Annual Income</small>
+                    <h3 id="netResult">$0</h3>
+                </div>
+                <div class="data-breakdown">
+                    <p id="dataNote"></p>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="legal-footer">
-        <p>&copy; 2026 ShiftCapital. All Rights Reserved.</p>
-        <p><small>Disclaimer: This site provides financial data for informational purposes only. Consult a certified professional for tax advice.</small></p>
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="logo-small">Plex<span>Capital</span></div>
+            <p>Precise. Borderless. Authoritative.</p>
+        </div>
+        <div class="disclaimer">
+            <p><strong>Disclaimer:</strong> PlexCapital provides data-driven simulations for informational purposes only. We are not certified financial advisors. Please consult a local professional for specific tax legalities.</p>
+            <p>&copy; 2026 PlexCapital Digital Infrastructure.</p>
+        </div>
     </footer>
 
-    <script src="app.js"></script>
+    <script src="./app.js"></script>
 </body>
 </html>
