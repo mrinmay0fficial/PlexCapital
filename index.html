@@ -350,9 +350,26 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">PlexCapital</a>
+  <a href="#" class="nav-logo" aria-label="PlexCapital Home" style="display: flex; align-items: center;">
+    <svg width="180" height="33" viewBox="0 0 230 42" aria-label="PlexCapital full logo">
+      <g transform="translate(0,5)">
+        <rect width="32" height="32" rx="7" fill="#f5c842"/>
+        <rect x="5.6" y="5.6" width="5.6" height="20.8" fill="#0b0f19" rx="0.8"/>
+        <rect x="11.2" y="5.6" width="13.2" height="2" fill="#0b0f19"/>
+        <rect x="11.2" y="15.2" width="3.6" height="11.2" fill="#0b0f19" rx="0.4"/>
+        <rect x="16" y="11.2" width="3.6" height="15.2" fill="#0b0f19" rx="0.4"/>
+        <rect x="20.8" y="7.6" width="3.6" height="18.8" fill="#0b0f19" rx="0.4"/>
+        <polyline points="12.8,15.2 17.6,11.2 22.4,7.6" stroke="#f5c842" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+        <circle cx="12.8" cy="15.2" r="0.9" fill="#f5c842"/>
+        <circle cx="17.6" cy="11.2" r="0.9" fill="#f5c842"/>
+        <circle cx="22.4" cy="7.6" r="0.9" fill="#f5c842"/>
+      </g>
+      <text x="42" y="30" font-family="Georgia,'Times New Roman',serif" font-size="22" fill="#f5c842">
+        <tspan font-weight="700">Plex</tspan><tspan font-weight="400">Capital</tspan>
+      </text>
+    </svg>
+  </a>
   <div class="nav-links">
     <a href="#calculators">Calculators</a>
     <a href="#tips">Investment Tips</a>
@@ -365,7 +382,6 @@
   <a href="#calculators" class="nav-cta">Get Started →</a>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-badge"><span></span> India's Free Financial Hub</div>
   <h1>Your Money.<br><em>Smarter Every Day.</em></h1>
@@ -382,7 +398,6 @@
   </div>
 </div>
 
-<!-- CALCULATORS -->
 <section id="calculators">
   <div class="section-label">Tools</div>
   <h2 class="section-title">Financial Calculators</h2>
@@ -395,10 +410,8 @@
     <button class="tool-tab" onclick="showTab('savings', event)">🏦 Savings</button>
   </div>
 
-  <!-- ═══════════════════════════════════════════════ INVESTMENT TAB -->
   <div id="tab-invest" class="tab-pane active">
 
-    <!-- SIP -->
     <div class="calc-wrapper">
       <div class="calc-card">
         <div class="calc-header">
@@ -430,7 +443,6 @@
       </div>
     </div>
 
-    <!-- LUMPSUM -->
     <div class="calc-wrapper">
       <div class="calc-card">
         <div class="calc-header">
@@ -461,7 +473,6 @@
       </div>
     </div>
 
-    <!-- CAGR -->
     <div class="calc-wrapper">
       <div class="calc-card">
         <div class="calc-header">
@@ -493,7 +504,6 @@
       </div>
     </div>
 
-    <!-- GOAL SIP -->
     <div class="calc-wrapper">
       <div class="calc-card">
         <div class="calc-header">
@@ -523,12 +533,8 @@
       </div>
     </div>
 
-  </div><!-- end tab-invest -->
+  </div><div id="tab-loans" class="tab-pane">
 
-  <!-- ═══════════════════════════════════════════════ LOANS TAB -->
-  <div id="tab-loans" class="tab-pane">
-
-    <!-- HOME LOAN EMI -->
     <div class="calc-wrapper">
       <div class="calc-card">
         <div class="calc-header">
@@ -561,7 +567,6 @@
       </div>
     </div>
 
-    <!-- CAR LOAN -->
     <div class="calc-wrapper">
       <div class="calc-card">
         <div class="calc-header">
@@ -592,7 +597,6 @@
       </div>
     </div>
 
-    <!-- PREPAYMENT -->
     <div class="calc-wrapper">
       <div class="calc-card">
         <div class="calc-header">
@@ -623,12 +627,8 @@
       </div>
     </div>
 
-  </div><!-- end tab-loans -->
+  </div><div id="tab-tax" class="tab-pane">
 
-  <!-- ═══════════════════════════════════════════════ TAX TAB -->
-  <div id="tab-tax" class="tab-pane">
-
-    <!-- INCOME TAX -->
     <div class="calc-wrapper">
       <div class="calc-card">
         <div class="calc-header">
@@ -670,7 +670,6 @@
       </div>
     </div>
 
-    <!-- HRA -->
     <div class="calc-wrapper">
       <div class="calc-card">
         <div class="calc-header">
@@ -706,7 +705,6 @@
       </div>
     </div>
 
-    <!-- CAPITAL GAINS -->
     <div class="calc-wrapper">
       <div class="calc-card">
         <div class="calc-header">
@@ -748,12 +746,8 @@
       </div>
     </div>
 
-  </div><!-- end tab-tax -->
+  </div><div id="tab-savings" class="tab-pane">
 
-  <!-- ═══════════════════════════════════════════════ SAVINGS TAB -->
-  <div id="tab-savings" class="tab-pane">
-
-    <!-- FD -->
     <div class="calc-wrapper">
       <div class="calc-card">
         <div class="calc-header">
@@ -791,7 +785,6 @@
       </div>
     </div>
 
-    <!-- PPF -->
     <div class="calc-wrapper">
       <div class="calc-card">
         <div class="calc-header">
@@ -820,7 +813,6 @@
       </div>
     </div>
 
-    <!-- RD -->
     <div class="calc-wrapper">
       <div class="calc-card">
         <div class="calc-header">
@@ -851,10 +843,8 @@
       </div>
     </div>
 
-  </div><!-- end tab-savings -->
-</section>
+  </div></section>
 
-<!-- MF GUIDE SECTION (replaces old fund comparison table) -->
 <div class="market-section" id="mfguide">
   <div>
     <div class="section-label">Education</div>
@@ -927,7 +917,6 @@
   </div>
 </div>
 
-<!-- INVESTMENT TIPS -->
 <section id="tips">
   <div class="section-label">Knowledge</div>
   <h2 class="section-title">Investment Tips</h2>
@@ -944,7 +933,6 @@
   </div>
 </section>
 
-<!-- BUSINESS IDEAS -->
 <section id="business" style="background: var(--bg2); max-width: 100%; padding: 5rem 2rem;">
   <div style="max-width: 1200px; margin: 0 auto;">
     <div class="section-label">Entrepreneurship</div>
@@ -963,7 +951,6 @@
   </div>
 </section>
 
-<!-- BANKING TIPS -->
 <section id="banking">
   <div class="section-label">Banking</div>
   <h2 class="section-title">Smart Banking Tips</h2>
@@ -978,7 +965,6 @@
   </div>
 </section>
 
-<!-- TAX GUIDE -->
 <section id="tax" style="background: var(--bg2); max-width: 100%; padding: 5rem 2rem;">
   <div style="max-width: 1200px; margin: 0 auto;">
     <div class="section-label">Tax Planning</div>
@@ -995,7 +981,6 @@
   </div>
 </section>
 
-<!-- GLOSSARY -->
 <section id="glossary">
   <div class="section-label">Learn</div>
   <h2 class="section-title">Financial Terms Simplified</h2>
@@ -1014,9 +999,26 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-logo">PlexCapital</div>
+  <div class="footer-logo" style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+    <svg width="200" height="36" viewBox="0 0 230 42" aria-label="PlexCapital full logo">
+      <g transform="translate(0,5)">
+        <rect width="32" height="32" rx="7" fill="#f5c842"/>
+        <rect x="5.6" y="5.6" width="5.6" height="20.8" fill="#0b0f19" rx="0.8"/>
+        <rect x="11.2" y="5.6" width="13.2" height="2" fill="#0b0f19"/>
+        <rect x="11.2" y="15.2" width="3.6" height="11.2" fill="#0b0f19" rx="0.4"/>
+        <rect x="16" y="11.2" width="3.6" height="15.2" fill="#0b0f19" rx="0.4"/>
+        <rect x="20.8" y="7.6" width="3.6" height="18.8" fill="#0b0f19" rx="0.4"/>
+        <polyline points="12.8,15.2 17.6,11.2 22.4,7.6" stroke="#f5c842" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+        <circle cx="12.8" cy="15.2" r="0.9" fill="#f5c842"/>
+        <circle cx="17.6" cy="11.2" r="0.9" fill="#f5c842"/>
+        <circle cx="22.4" cy="7.6" r="0.9" fill="#f5c842"/>
+      </g>
+      <text x="42" y="30" font-family="Georgia,'Times New Roman',serif" font-size="22" fill="#f5c842">
+        <tspan font-weight="700">Plex</tspan><tspan font-weight="400">Capital</tspan>
+      </text>
+    </svg>
+  </div>
   <div class="footer-links">
     <a href="#calculators">Calculators</a>
     <a href="#tips">Investment Tips</a>
