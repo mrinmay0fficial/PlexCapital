@@ -4,247 +4,355 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PlexCapital — Your Financial Intelligence Hub</title>
-<meta name="description" content="Free financial calculators, investment guides, tax tools, and business ideas for Indians. SIP, EMI, Income Tax, HRA and more.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f5c842'/%3E%3Cpath d='M6 24L12 16L18 20L26 9' stroke='%230b0f19' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Ccircle cx='6' cy='24' r='2' fill='%230b0f19'/%3E%3Ccircle cx='26' cy='9' r='2' fill='%230b0f19'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg:#0b0f19; --bg2:#111827; --bg3:#1a2235; --card:#141c2e; --card2:#1e2a40;
-  --border:rgba(255,255,255,0.08); --border2:rgba(255,255,255,0.15);
-  --gold:#f5c842; --teal:#2dd4bf; --blue:#60a5fa; --green:#4ade80;
-  --red:#f87171; --orange:#fb923c; --purple:#a78bfa;
-  --text:#f0f4ff; --text2:#94a3b8; --text3:#64748b;
-  --serif:'DM Serif Display',Georgia,serif; --sans:'DM Sans',system-ui,sans-serif;
-  --radius:14px; --radius-sm:8px;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
-section,#mfguide>div{scroll-margin-top:72px}
+  :root {
+    --bg: #0b0f19;
+    --bg2: #111827;
+    --bg3: #1a2235;
+    --card: #141c2e;
+    --card2: #1e2a40;
+    --border: rgba(255,255,255,0.08);
+    --border2: rgba(255,255,255,0.15);
+    --gold: #f5c842;
+    --gold2: #e8b320;
+    --teal: #2dd4bf;
+    --blue: #60a5fa;
+    --green: #4ade80;
+    --red: #f87171;
+    --orange: #fb923c;
+    --purple: #a78bfa;
+    --text: #f0f4ff;
+    --text2: #94a3b8;
+    --text3: #64748b;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --radius: 14px;
+    --radius-sm: 8px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
 
-/* ── NAV ── */
-nav{position:sticky;top:0;z-index:200;background:rgba(11,15,25,0.94);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;gap:1.5rem;height:62px}
-.nav-logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:1.3rem;color:var(--gold);text-decoration:none;flex-shrink:0;letter-spacing:-0.01em}
-.nav-logo svg{flex-shrink:0}
-.nav-links{display:flex;gap:0.2rem;flex:1;flex-wrap:wrap}
-.nav-links a{color:var(--text2);text-decoration:none;font-size:0.8rem;font-weight:500;padding:0.3rem 0.7rem;border-radius:6px;transition:all .2s;white-space:nowrap}
-.nav-links a:hover{color:var(--text);background:rgba(255,255,255,0.06)}
-.nav-cta{background:var(--gold);color:#0b0f19;font-weight:700;font-size:0.8rem;padding:0.4rem 1rem;border-radius:6px;text-decoration:none;flex-shrink:0;transition:opacity .2s}
-.nav-cta:hover{opacity:.85}
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(11,15,25,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; gap: 2rem;
+    height: 60px;
+  }
+  .nav-logo { font-family: var(--serif); font-size: 1.4rem; color: var(--gold); text-decoration: none; flex-shrink: 0; }
+  .nav-links { display: flex; gap: 0.25rem; flex: 1; flex-wrap: wrap; }
+  .nav-links a {
+    color: var(--text2); text-decoration: none; font-size: 0.82rem; font-weight: 500;
+    padding: 0.35rem 0.75rem; border-radius: 6px; transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.06); }
+  .nav-cta {
+    background: var(--gold); color: #0b0f19; font-weight: 600; font-size: 0.82rem;
+    padding: 0.4rem 1rem; border-radius: 6px; text-decoration: none; flex-shrink: 0;
+  }
 
-/* ── TRADINGVIEW TICKER ── */
-.tv-wrap{background:var(--bg2);border-bottom:1px solid var(--border);height:46px;overflow:hidden}
+  /* HERO */
+  .hero {
+    min-height: 88vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 4rem 2rem 2rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(245,200,66,0.08) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 40% at 80% 80%, rgba(45,212,191,0.06) 0%, transparent 60%);
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(245,200,66,0.12); border: 1px solid rgba(245,200,66,0.25);
+    color: var(--gold); font-size: 0.78rem; font-weight: 500;
+    padding: 0.35rem 1rem; border-radius: 99px; margin-bottom: 2rem;
+  }
+  .hero-badge span { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .hero h1 {
+    font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 5rem);
+    line-height: 1.1; margin-bottom: 1.5rem; position: relative;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+  .hero p {
+    font-size: 1.15rem; color: var(--text2); max-width: 580px; margin: 0 auto 2.5rem;
+    font-weight: 300;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .btn-primary {
+    background: var(--gold); color: #0b0f19; font-weight: 600; font-size: 0.95rem;
+    padding: 0.75rem 2rem; border-radius: var(--radius-sm); text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 24px rgba(245,200,66,0.25);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 32px rgba(245,200,66,0.35); }
+  .btn-outline {
+    background: transparent; color: var(--text); font-weight: 500; font-size: 0.95rem;
+    padding: 0.75rem 2rem; border-radius: var(--radius-sm); text-decoration: none;
+    border: 1px solid var(--border2); transition: background 0.2s;
+  }
+  .btn-outline:hover { background: rgba(255,255,255,0.06); }
+  .hero-stats {
+    display: flex; gap: 3rem; margin-top: 4rem; flex-wrap: wrap; justify-content: center;
+    position: relative;
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat .num { font-family: var(--serif); font-size: 2rem; color: var(--gold); }
+  .hero-stat .lbl { font-size: 0.8rem; color: var(--text3); margin-top: 2px; }
 
-/* ── HERO ── */
-.hero{min-height:88vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem 2rem;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(245,200,66,.08) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 80% 80%,rgba(45,212,191,.06) 0%,transparent 60%)}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(245,200,66,.12);border:1px solid rgba(245,200,66,.25);color:var(--gold);font-size:.78rem;font-weight:500;padding:.35rem 1rem;border-radius:99px;margin-bottom:2rem;position:relative}
-.hero-badge span{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-.hero h1{font-family:var(--serif);font-size:clamp(2.8rem,6vw,5rem);line-height:1.1;margin-bottom:1.5rem;position:relative}
-.hero h1 em{font-style:italic;color:var(--gold)}
-.hero p{font-size:1.1rem;color:var(--text2);max-width:560px;margin:0 auto 2.5rem;font-weight:300;position:relative}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;position:relative}
-.btn-primary{background:var(--gold);color:#0b0f19;font-weight:700;font-size:.95rem;padding:.75rem 2rem;border-radius:var(--radius-sm);text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 24px rgba(245,200,66,.25);display:inline-block}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 32px rgba(245,200,66,.35)}
-.btn-outline{background:transparent;color:var(--text);font-weight:500;font-size:.95rem;padding:.75rem 2rem;border-radius:var(--radius-sm);text-decoration:none;border:1px solid var(--border2);transition:background .2s;display:inline-block}
-.btn-outline:hover{background:rgba(255,255,255,.06)}
-.hero-stats{display:flex;gap:3rem;margin-top:4rem;flex-wrap:wrap;justify-content:center;position:relative}
-.hero-stat .num{font-family:var(--serif);font-size:2rem;color:var(--gold)}
-.hero-stat .lbl{font-size:.8rem;color:var(--text3);margin-top:2px}
+  /* SECTIONS */
+  section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em;
+    color: var(--gold); text-transform: uppercase; margin-bottom: 0.75rem;
+  }
+  .section-title { font-family: var(--serif); font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.15; margin-bottom: 1rem; }
+  .section-sub { color: var(--text2); font-size: 1rem; max-width: 540px; margin-bottom: 3rem; font-weight: 300; }
 
-/* ── SECTIONS ── */
-section{padding:5rem 2rem;max-width:1200px;margin:0 auto}
-.section-label{font-size:.74rem;font-weight:700;letter-spacing:.13em;color:var(--gold);text-transform:uppercase;margin-bottom:.75rem}
-.section-title{font-family:var(--serif);font-size:clamp(2rem,4vw,2.8rem);line-height:1.15;margin-bottom:1rem}
-.section-sub{color:var(--text2);font-size:1rem;max-width:540px;margin-bottom:3rem;font-weight:300}
+  /* TOOLS NAV */
+  .tools-nav {
+    display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem;
+  }
+  .tool-tab {
+    background: var(--card); border: 1px solid var(--border); color: var(--text2);
+    font-size: 0.82rem; font-weight: 500; padding: 0.45rem 1.1rem; border-radius: 99px;
+    cursor: pointer; transition: all 0.2s; white-space: nowrap;
+  }
+  .tool-tab.active, .tool-tab:hover { background: var(--gold); color: #0b0f19; border-color: var(--gold); }
 
-/* ── TOOLS NAV ── */
-.tools-nav{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2rem}
-.tool-tab{background:var(--card);border:1px solid var(--border);color:var(--text2);font-size:.82rem;font-weight:500;padding:.45rem 1.1rem;border-radius:99px;cursor:pointer;transition:all .2s;white-space:nowrap;font-family:var(--sans)}
-.tool-tab.active,.tool-tab:hover{background:var(--gold);color:#0b0f19;border-color:var(--gold)}
+  /* CALC WRAPPER — calc + guide side by side */
+  .calc-grid { display: flex; flex-direction: column; gap: 2rem; }
+  .calc-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 290px;
+    gap: 1.25rem;
+    align-items: start;
+  }
 
-/* ── CALC LAYOUT ── */
-.calc-grid{display:flex;flex-direction:column;gap:2rem}
-.tab-pane{display:none}
-.tab-pane.active{display:flex;flex-direction:column;gap:2rem}
-.calc-wrapper{display:grid;grid-template-columns:1fr 290px;gap:1.25rem;align-items:start}
-.calc-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;position:relative;overflow:hidden;transition:border-color .2s,transform .2s}
-.calc-card:hover{border-color:var(--border2);transform:translateY(-2px)}
-.calc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent)}
-.calc-header{display:flex;align-items:center;gap:12px;margin-bottom:1.5rem}
-.calc-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
-.calc-icon.gold{background:rgba(245,200,66,.15)}
-.calc-icon.teal{background:rgba(45,212,191,.15)}
-.calc-icon.blue{background:rgba(96,165,250,.15)}
-.calc-icon.purple{background:rgba(167,139,250,.15)}
-.calc-icon.green{background:rgba(74,222,128,.15)}
-.calc-icon.orange{background:rgba(251,146,60,.15)}
-.calc-title{font-size:1.05rem;font-weight:600}
-.calc-desc{font-size:.82rem;color:var(--text3);margin-top:2px}
-label{display:block;font-size:.8rem;color:var(--text2);margin-bottom:6px;margin-top:12px}
-label:first-of-type{margin-top:0}
-input[type=range]{width:100%;accent-color:var(--gold);cursor:pointer}
-.range-val{font-size:.85rem;font-weight:600;color:var(--gold);min-width:60px;text-align:right}
-input[type=number],select{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:.5rem .75rem;border-radius:var(--radius-sm);font-size:.9rem;font-family:var(--sans);outline:none;transition:border-color .2s}
-input[type=number]:focus,select:focus{border-color:var(--gold)}
-select option{background:var(--bg2)}
-.result-box{margin-top:1.25rem;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:1rem}
-.result-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0}
-.result-row .rlbl{font-size:.82rem;color:var(--text2)}
-.result-row .rval{font-size:.9rem;font-weight:600;color:var(--text)}
-.result-row .rval.highlight{color:var(--green);font-size:1.1rem}
-.result-divider{border:none;border-top:1px solid var(--border);margin:8px 0}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  /* CALCULATOR CARDS */
+  .calc-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.75rem; position: relative; overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .calc-card:hover { border-color: var(--border2); transform: translateY(-2px); }
+  .calc-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+  .calc-header { display: flex; align-items: center; gap: 12px; margin-bottom: 1.5rem; }
+  .calc-icon {
+    width: 42px; height: 42px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .calc-icon.gold { background: rgba(245,200,66,0.15); }
+  .calc-icon.teal { background: rgba(45,212,191,0.15); }
+  .calc-icon.blue { background: rgba(96,165,250,0.15); }
+  .calc-icon.purple { background: rgba(167,139,250,0.15); }
+  .calc-icon.green { background: rgba(74,222,128,0.15); }
+  .calc-icon.orange { background: rgba(251,146,60,0.15); }
+  .calc-title { font-size: 1.05rem; font-weight: 600; }
+  .calc-desc { font-size: 0.82rem; color: var(--text3); margin-top: 2px; }
 
-/* ── GUIDE PANEL ── */
-.guide-panel{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem;position:sticky;top:76px}
-.guide-panel::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),transparent);border-radius:var(--radius) var(--radius) 0 0}
-.guide-panel{position:relative}
-.guide-head{display:flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
-.guide-what{font-size:.88rem;color:var(--text2);line-height:1.65;margin-bottom:1rem}
-.guide-terms{margin-bottom:1rem}
-.guide-term{display:flex;gap:8px;align-items:flex-start;font-size:.82rem;margin-bottom:.6rem;line-height:1.5}
-.guide-term-key{background:rgba(245,200,66,.12);color:var(--gold);font-size:.7rem;font-weight:700;padding:2px 7px;border-radius:4px;white-space:nowrap;margin-top:2px;flex-shrink:0}
-.guide-term-val{color:var(--text2)}
-.guide-tip{background:rgba(45,212,191,.07);border:1px solid rgba(45,212,191,.18);border-radius:var(--radius-sm);padding:.75rem;font-size:.82rem;color:var(--text2);line-height:1.55}
-.guide-tip strong{color:var(--teal);display:block;margin-bottom:3px;font-size:.75rem;text-transform:uppercase;letter-spacing:.06em}
+  /* GUIDE PANEL */
+  .guide-panel {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.4rem;
+    position: sticky;
+    top: 76px;
+  }
+  .guide-panel::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--teal), transparent);
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+  .guide-panel { position: relative; }
+  .guide-head {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 1rem; padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .guide-what {
+    font-size: 0.88rem; color: var(--text2); line-height: 1.65; margin-bottom: 1rem;
+  }
+  .guide-terms { margin-bottom: 1rem; }
+  .guide-term {
+    display: flex; gap: 8px; align-items: flex-start;
+    font-size: 0.82rem; margin-bottom: 0.6rem; line-height: 1.5;
+  }
+  .guide-term-key {
+    background: rgba(245,200,66,0.12); color: var(--gold);
+    font-size: 0.7rem; font-weight: 700; padding: 2px 7px; border-radius: 4px;
+    white-space: nowrap; margin-top: 2px; flex-shrink: 0;
+  }
+  .guide-term-val { color: var(--text2); }
+  .guide-tip {
+    background: rgba(45,212,191,0.07); border: 1px solid rgba(45,212,191,0.18);
+    border-radius: var(--radius-sm); padding: 0.75rem;
+    font-size: 0.82rem; color: var(--text2); line-height: 1.55;
+  }
+  .guide-tip strong { color: var(--teal); display: block; margin-bottom: 3px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; }
 
-/* ── TIPS GRID ── */
-.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem}
-.tip-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;transition:border-color .2s,transform .2s;cursor:pointer}
-.tip-card:hover{border-color:var(--gold);transform:translateY(-2px)}
-.tip-tag{display:inline-block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 10px;border-radius:99px;margin-bottom:.75rem}
-.tag-invest{background:rgba(245,200,66,.15);color:var(--gold)}
-.tag-banking{background:rgba(45,212,191,.15);color:var(--teal)}
-.tag-tax{background:rgba(96,165,250,.15);color:var(--blue)}
-.tag-business{background:rgba(167,139,250,.15);color:var(--purple)}
-.tag-savings{background:rgba(74,222,128,.15);color:var(--green)}
-.tip-title{font-size:.95rem;font-weight:600;margin-bottom:.5rem;line-height:1.35}
-.tip-body{font-size:.83rem;color:var(--text2);line-height:1.6}
-.tip-read{display:flex;align-items:center;gap:5px;font-size:.78rem;color:var(--gold);font-weight:600;margin-top:.85rem;transition:gap .2s}
-.tip-card:hover .tip-read{gap:9px}
+  /* FORM ELEMENTS */
+  label { display: block; font-size: 0.8rem; color: var(--text2); margin-bottom: 6px; margin-top: 12px; }
+  label:first-of-type { margin-top: 0; }
+  input[type=range] { width: 100%; accent-color: var(--gold); cursor: pointer; }
+  .range-row { display: flex; justify-content: space-between; align-items: center; }
+  .range-val { font-size: 0.85rem; font-weight: 600; color: var(--gold); min-width: 60px; text-align: right; }
+  input[type=number], select {
+    width: 100%; background: var(--bg3); border: 1px solid var(--border);
+    color: var(--text); padding: 0.5rem 0.75rem; border-radius: var(--radius-sm);
+    font-size: 0.9rem; font-family: var(--sans); outline: none;
+    transition: border-color 0.2s;
+  }
+  input[type=number]:focus, select:focus { border-color: var(--gold); }
+  select option { background: var(--bg2); }
+  .calc-btn {
+    width: 100%; margin-top: 1.25rem; padding: 0.65rem;
+    background: var(--gold); color: #0b0f19; font-weight: 600; font-size: 0.9rem;
+    border: none; border-radius: var(--radius-sm); cursor: pointer; transition: opacity 0.2s;
+  }
+  .calc-btn:hover { opacity: 0.88; }
+  .result-box {
+    margin-top: 1.25rem; background: var(--bg3); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 1rem;
+  }
+  .result-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; }
+  .result-row .rlbl { font-size: 0.82rem; color: var(--text2); }
+  .result-row .rval { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+  .result-row .rval.highlight { color: var(--green); font-size: 1.1rem; }
+  .result-divider { border: none; border-top: 1px solid var(--border); margin: 8px 0; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
-/* ── MF GUIDE ── */
-.market-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:5rem 0}
-.market-section>div{max-width:1200px;margin:0 auto;padding:0 2rem}
-.mf-guide-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem;margin-bottom:2rem}
-.mf-type-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;position:relative;overflow:hidden}
-.mf-type-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
-.mf-type-card.equity::before{background:linear-gradient(90deg,var(--green),transparent)}
-.mf-type-card.debt::before{background:linear-gradient(90deg,var(--blue),transparent)}
-.mf-type-card.hybrid::before{background:linear-gradient(90deg,var(--purple),transparent)}
-.mf-type-card.index::before{background:linear-gradient(90deg,var(--gold),transparent)}
-.mf-type-card.liquid::before{background:linear-gradient(90deg,var(--teal),transparent)}
-.mf-type-card.elss::before{background:linear-gradient(90deg,var(--orange),transparent)}
-.mf-card-icon{font-size:1.8rem;margin-bottom:.75rem}
-.mf-card-title{font-size:1rem;font-weight:600;margin-bottom:.4rem}
-.mf-card-risk{font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:99px;display:inline-block;margin-bottom:.6rem}
-.risk-low{background:rgba(74,222,128,.15);color:var(--green)}
-.risk-med{background:rgba(251,146,60,.15);color:var(--orange)}
-.risk-high{background:rgba(248,113,113,.15);color:var(--red)}
-.mf-card-body{font-size:.83rem;color:var(--text2);line-height:1.6}
-.mf-checklist{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem}
-.mf-checklist-title{font-family:var(--serif);font-size:1.3rem;margin-bottom:1.25rem}
-.mf-check-item{display:flex;gap:12px;align-items:flex-start;padding:.75rem 0;border-bottom:1px solid var(--border)}
-.mf-check-item:last-child{border-bottom:none}
-.mf-check-num{width:26px;height:26px;border-radius:50%;background:rgba(245,200,66,.15);color:var(--gold);font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
-.mf-check-text strong{font-size:.9rem;display:block;margin-bottom:2px}
-.mf-check-text span{font-size:.82rem;color:var(--text2);line-height:1.5}
+  /* TIPS SECTION */
+  .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+  .tip-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 1.5rem; transition: border-color 0.2s, transform 0.2s;
+  }
+  .tip-card:hover { border-color: var(--border2); transform: translateY(-2px); }
+  .tip-tag {
+    display: inline-block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.08em; padding: 3px 10px; border-radius: 99px; margin-bottom: 0.75rem;
+  }
+  .tag-invest { background: rgba(245,200,66,0.15); color: var(--gold); }
+  .tag-banking { background: rgba(45,212,191,0.15); color: var(--teal); }
+  .tag-tax { background: rgba(96,165,250,0.15); color: var(--blue); }
+  .tag-business { background: rgba(167,139,250,0.15); color: var(--purple); }
+  .tag-savings { background: rgba(74,222,128,0.15); color: var(--green); }
+  .tag-guide { background: rgba(251,146,60,0.15); color: var(--orange); }
+  .tip-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; line-height: 1.35; }
+  .tip-body { font-size: 0.83rem; color: var(--text2); line-height: 1.6; }
 
-/* ── GLOSSARY ── */
-.accordion{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-.acc-item{border-bottom:1px solid var(--border)}
-.acc-item:last-child{border-bottom:none}
-.acc-head{width:100%;background:none;border:none;color:var(--text);font-family:var(--sans);font-size:.92rem;font-weight:600;text-align:left;padding:1.1rem 1.25rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .2s}
-.acc-head:hover{background:rgba(255,255,255,.03)}
-.acc-arrow{font-size:.75rem;color:var(--text3);transition:transform .2s}
-.acc-body{display:none;padding:0 1.25rem 1.1rem;font-size:.87rem;color:var(--text2);line-height:1.7}
-.acc-body.open{display:block}
-.acc-arrow.open{transform:rotate(180deg)}
+  /* MF GUIDE SECTION */
+  .mf-guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; }
+  .mf-type-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 1.5rem; position: relative; overflow: hidden;
+  }
+  .mf-type-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  }
+  .mf-type-card.equity::before { background: linear-gradient(90deg, var(--green), transparent); }
+  .mf-type-card.debt::before { background: linear-gradient(90deg, var(--blue), transparent); }
+  .mf-type-card.hybrid::before { background: linear-gradient(90deg, var(--purple), transparent); }
+  .mf-type-card.index::before { background: linear-gradient(90deg, var(--gold), transparent); }
+  .mf-type-card.liquid::before { background: linear-gradient(90deg, var(--teal), transparent); }
+  .mf-type-card.elss::before { background: linear-gradient(90deg, var(--orange), transparent); }
+  .mf-card-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+  .mf-card-title { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
+  .mf-card-risk { font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 99px; display: inline-block; margin-bottom: 0.6rem; }
+  .risk-low { background: rgba(74,222,128,0.15); color: var(--green); }
+  .risk-med { background: rgba(251,146,60,0.15); color: var(--orange); }
+  .risk-high { background: rgba(248,113,113,0.15); color: var(--red); }
+  .mf-card-body { font-size: 0.83rem; color: var(--text2); line-height: 1.6; }
+  .mf-checklist { margin-top: 2rem; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; }
+  .mf-checklist-title { font-family: var(--serif); font-size: 1.3rem; margin-bottom: 1.25rem; }
+  .mf-check-item { display: flex; gap: 12px; align-items: flex-start; padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
+  .mf-check-item:last-child { border-bottom: none; }
+  .mf-check-num { width: 26px; height: 26px; border-radius: 50%; background: rgba(245,200,66,0.15); color: var(--gold); font-size: 0.75rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+  .mf-check-text strong { font-size: 0.9rem; display: block; margin-bottom: 2px; }
+  .mf-check-text span { font-size: 0.82rem; color: var(--text2); line-height: 1.5; }
 
-/* ── ARTICLE OVERLAY ── */
-.art-overlay{position:fixed;inset:0;z-index:600;background:var(--bg);overflow-y:auto;transform:translateX(100%);transition:transform .38s cubic-bezier(0.4,0,0.2,1)}
-.art-overlay.open{transform:translateX(0)}
-.art-topbar{position:sticky;top:0;z-index:10;background:rgba(11,15,25,.96);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);padding:0 2rem;height:62px;display:flex;align-items:center;justify-content:space-between}
-.art-back{display:flex;align-items:center;gap:8px;background:none;border:1px solid var(--border);color:var(--text2);font-family:var(--sans);font-size:.84rem;font-weight:500;padding:.4rem 1.1rem;border-radius:99px;cursor:pointer;transition:all .2s}
-.art-back:hover{border-color:var(--gold);color:var(--gold)}
-.art-logo{font-family:var(--serif);font-size:1.1rem;color:var(--gold);display:flex;align-items:center;gap:8px}
-.art-inner{max-width:740px;margin:0 auto;padding:3rem 2rem 6rem}
-.art-meta{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}
-.art-time{font-size:.8rem;color:var(--text3)}
-.art-h1{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.18;margin-bottom:1rem}
-.art-lead{font-size:1.05rem;color:var(--text2);font-weight:300;line-height:1.7;margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
-.art-body h2{font-family:var(--serif);font-size:1.35rem;margin:2rem 0 .65rem;color:var(--text)}
-.art-body p{font-size:.95rem;color:var(--text2);line-height:1.8;margin-bottom:1.2rem}
-.art-body ul,.art-body ol{margin:0 0 1.2rem 1.4rem}
-.art-body li{font-size:.93rem;color:var(--text2);line-height:1.7;margin-bottom:.4rem}
-.art-body strong{color:var(--text)}
-.art-callout{background:rgba(245,200,66,.07);border-left:3px solid var(--gold);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:1rem 1.25rem;margin:1.5rem 0}
-.art-callout b{color:var(--gold);display:block;margin-bottom:4px;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em}
-.art-callout p{margin:0;font-size:.92rem}
-.art-takeaway{background:var(--card2);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-top:2.5rem}
-.art-takeaway-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);margin-bottom:.75rem}
-.art-takeaway ul{margin:0 0 0 1.2rem}
-.art-takeaway li{font-size:.87rem;color:var(--text2);line-height:1.65;margin-bottom:.35rem}
+  /* GLOSSARY */
+  .accordion { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .acc-item { border-bottom: 1px solid var(--border); }
+  .acc-item:last-child { border-bottom: none; }
+  .acc-head {
+    width: 100%; background: none; border: none; color: var(--text);
+    font-family: var(--sans); font-size: 0.92rem; font-weight: 600;
+    text-align: left; padding: 1.1rem 1.25rem; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    transition: background 0.2s;
+  }
+  .acc-head:hover { background: rgba(255,255,255,0.03); }
+  .acc-arrow { font-size: 0.75rem; color: var(--text3); transition: transform 0.2s; }
+  .acc-body { display: none; padding: 0 1.25rem 1.1rem; font-size: 0.87rem; color: var(--text2); line-height: 1.7; }
+  .acc-body.open { display: block; }
+  .acc-arrow.open { transform: rotate(180deg); }
 
-/* ── FOOTER ── */
-footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2rem;text-align:center}
-.footer-logo{display:flex;align-items:center;justify-content:center;gap:10px;font-family:var(--serif);font-size:1.4rem;color:var(--gold);margin-bottom:.75rem}
-.footer-links{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
-.footer-links a{color:var(--text2);text-decoration:none;font-size:.85rem}
-.footer-links a:hover{color:var(--text)}
-.footer-disc{font-size:.74rem;color:var(--text3);max-width:600px;margin:0 auto;line-height:1.6}
+  /* FOOTER */
+  footer {
+    background: var(--bg2); border-top: 1px solid var(--border);
+    padding: 3rem 2rem; text-align: center;
+  }
+  .footer-logo { font-family: var(--serif); font-size: 1.5rem; color: var(--gold); margin-bottom: 0.75rem; }
+  .footer-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .footer-links a { color: var(--text2); text-decoration: none; font-size: 0.85rem; }
+  .footer-links a:hover { color: var(--text); }
+  .footer-disc { font-size: 0.75rem; color: var(--text3); max-width: 600px; margin: 0 auto; line-height: 1.6; }
 
-/* ── SCROLLBAR ── */
-::-webkit-scrollbar{width:6px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:var(--bg3);border-radius:3px}
+  /* TABS CONTENT */
+  .tab-pane { display: none; }
+  .tab-pane.active { display: flex; flex-direction: column; gap: 2rem; }
 
-/* ── RESPONSIVE ── */
-@media(max-width:900px){.calc-wrapper{grid-template-columns:1fr}.guide-panel{position:static}}
-@media(max-width:680px){nav{padding:0 1rem;gap:1rem}.nav-links{display:none}.hero h1{font-size:2.4rem}.two-col{grid-template-columns:1fr}section{padding:3rem 1rem}.art-inner{padding:2rem 1rem 4rem}}
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--bg3); border-radius: 3px; }
+
+  /* MARKET SECTION BG */
+  .market-section { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 5rem 0; }
+  .market-section > div { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+  @media (max-width: 900px) {
+    .calc-wrapper { grid-template-columns: 1fr; }
+    .guide-panel { position: static; }
+  }
+  @media (max-width: 680px) {
+    nav { padding: 0 1rem; gap: 1rem; }
+    .nav-links { display: none; }
+    .hero h1 { font-size: 2.4rem; }
+    .two-col { grid-template-columns: 1fr; }
+    section { padding: 3rem 1rem; }
+  }
 </style>
 </head>
 <body>
 
-<!-- ══════════ ARTICLE OVERLAY ══════════ -->
-<div class="art-overlay" id="artOverlay">
-  <div class="art-topbar">
-    <button class="art-back" onclick="closeArticle()">&#8592; Back to PlexCapital</button>
-    <div class="art-logo">
-      <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
-        <rect width="32" height="32" rx="8" fill="#f5c842"/>
-        <path d="M6 24L12 16L18 20L26 9" stroke="#0b0f19" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="6" cy="24" r="2" fill="#0b0f19"/>
-        <circle cx="26" cy="9" r="2" fill="#0b0f19"/>
-      </svg>
-      PlexCapital
-    </div>
-  </div>
-  <div class="art-inner">
-    <div class="art-meta">
-      <span id="artTag" class="tip-tag"></span>
-      <span id="artTime" class="art-time"></span>
-    </div>
-    <h1 class="art-h1" id="artTitle"></h1>
-    <p class="art-lead" id="artLead"></p>
-    <div class="art-body" id="artBody"></div>
-  </div>
-</div>
-
-<!-- ══════════ NAV ══════════ -->
+<!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-      <rect width="32" height="32" rx="8" fill="#f5c842"/>
-      <path d="M6 24L12 16L18 20L26 9" stroke="#0b0f19" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="6" cy="24" r="2" fill="#0b0f19"/>
-      <circle cx="26" cy="9" r="2" fill="#0b0f19"/>
-    </svg>
-    PlexCapital
-  </a>
+  <a href="#" class="nav-logo">PlexCapital</a>
   <div class="nav-links">
     <a href="#calculators">Calculators</a>
     <a href="#tips">Investment Tips</a>
@@ -254,20 +362,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
     <a href="#mfguide">MF Guide</a>
     <a href="#glossary">Glossary</a>
   </div>
-  <a href="#calculators" class="nav-cta">Open Calculators →</a>
+  <a href="#calculators" class="nav-cta">Get Started →</a>
 </nav>
 
-<!-- ══════════ TRADINGVIEW LIVE TICKER ══════════ -->
-<div class="tv-wrap">
-  <div class="tradingview-widget-container" style="height:46px;">
-    <div class="tradingview-widget-container__widget"></div>
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-    {"symbols":[{"proName":"BSE:SENSEX","title":"SENSEX"},{"proName":"NSE:NIFTY","title":"NIFTY 50"},{"proName":"NSE:BANKNIFTY","title":"BANK NIFTY"},{"proName":"NSE:NIFTYMIDCAP100","title":"MIDCAP 100"},{"proName":"MCX:GOLD1!","title":"Gold"},{"proName":"MCX:SILVER1!","title":"Silver"},{"proName":"FX_IDC:USDINR","title":"USD/INR"},{"proName":"BINANCE:BTCUSDT","title":"Bitcoin"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"dark","locale":"en"}
-    </script>
-  </div>
-</div>
-
-<!-- ══════════ HERO ══════════ -->
+<!-- HERO -->
 <div class="hero">
   <div class="hero-badge"><span></span> India's Free Financial Hub</div>
   <h1>Your Money.<br><em>Smarter Every Day.</em></h1>
@@ -278,29 +376,35 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
   </div>
   <div class="hero-stats">
     <div class="hero-stat"><div class="num">12+</div><div class="lbl">Free Calculators</div></div>
-    <div class="hero-stat"><div class="num">28</div><div class="lbl">Full Articles</div></div>
+    <div class="hero-stat"><div class="num">50+</div><div class="lbl">Financial Tips</div></div>
     <div class="hero-stat"><div class="num">100%</div><div class="lbl">Free Forever</div></div>
     <div class="hero-stat"><div class="num">₹0</div><div class="lbl">No Hidden Fees</div></div>
   </div>
 </div>
 
-<!-- ══════════ CALCULATORS ══════════ -->
+<!-- CALCULATORS -->
 <section id="calculators">
   <div class="section-label">Tools</div>
   <h2 class="section-title">Financial Calculators</h2>
-  <p class="section-sub">Plan your future with precision. Each calculator has a plain-language guide so anyone can understand it.</p>
+  <p class="section-sub">Plan your future with precision. Each calculator comes with a plain-language guide so anyone can understand it.</p>
+
   <div class="tools-nav">
-    <button class="tool-tab active" onclick="showTab('invest',event)">💰 Investment</button>
-    <button class="tool-tab" onclick="showTab('loans',event)">🏠 Loans &amp; EMI</button>
-    <button class="tool-tab" onclick="showTab('tax',event)">📋 Tax</button>
-    <button class="tool-tab" onclick="showTab('savings',event)">🏦 Savings</button>
+    <button class="tool-tab active" onclick="showTab('invest', event)">💰 Investment</button>
+    <button class="tool-tab" onclick="showTab('loans', event)">🏠 Loans & EMI</button>
+    <button class="tool-tab" onclick="showTab('tax', event)">📋 Tax</button>
+    <button class="tool-tab" onclick="showTab('savings', event)">🏦 Savings</button>
   </div>
 
-  <!-- INVESTMENT TAB -->
+  <!-- ═══════════════════════════════════════════════ INVESTMENT TAB -->
   <div id="tab-invest" class="tab-pane active">
+
+    <!-- SIP -->
     <div class="calc-wrapper">
       <div class="calc-card">
-        <div class="calc-header"><div class="calc-icon gold">📈</div><div><div class="calc-title">SIP Calculator</div><div class="calc-desc">Systematic Investment Plan returns</div></div></div>
+        <div class="calc-header">
+          <div class="calc-icon gold">📈</div>
+          <div><div class="calc-title">SIP Calculator</div><div class="calc-desc">Systematic Investment Plan returns</div></div>
+        </div>
         <label>Monthly Investment (₹) <span class="range-val" id="sip-amt-v">₹5,000</span></label>
         <input type="range" min="500" max="100000" step="500" value="5000" oninput="updateSIP()" id="sip-amt">
         <label>Expected Annual Return (%) <span class="range-val" id="sip-rate-v">12%</span></label>
@@ -310,24 +414,29 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
         <div class="result-box">
           <div class="result-row"><span class="rlbl">Amount Invested</span><span class="rval" id="sip-inv">—</span></div>
           <hr class="result-divider">
-          <div class="result-row"><span class="rlbl">Estimated Returns</span><span class="rval" id="sip-ret">—</span></div>
+          <div class="result-row"><span class="rlbl">Estimated Returns</span><span class="rval up" id="sip-ret">—</span></div>
           <div class="result-row"><span class="rlbl">Total Corpus</span><span class="rval highlight" id="sip-total">—</span></div>
         </div>
       </div>
       <div class="guide-panel">
         <div class="guide-head">📖 What is SIP?</div>
-        <p class="guide-what">SIP means investing a fixed amount every month in a mutual fund — like a recurring deposit, but in the stock market. Even ₹500/month is enough to start.</p>
+        <p class="guide-what">SIP means investing a fixed amount every month — like a recurring deposit, but in the stock market. You don't need a lump sum. Even ₹500/month is enough to start.</p>
         <div class="guide-terms">
           <div class="guide-term"><span class="guide-term-key">Units</span><span class="guide-term-val">When you invest, you buy "units" of a fund. More units = more wealth over time.</span></div>
-          <div class="guide-term"><span class="guide-term-key">12%</span><span class="guide-term-val">Historical average return of Nifty 50 index. Use as your benchmark.</span></div>
-          <div class="guide-term"><span class="guide-term-key">RCA</span><span class="guide-term-val">Rupee Cost Averaging — you buy more units when markets fall, lowering your average cost.</span></div>
+          <div class="guide-term"><span class="guide-term-key">12%</span><span class="guide-term-val">The historical average return of Nifty 50 index. Use this as a benchmark.</span></div>
+          <div class="guide-term"><span class="guide-term-key">RCA</span><span class="guide-term-val">Rupee Cost Averaging — you automatically buy more when markets fall, which lowers your average cost.</span></div>
         </div>
         <div class="guide-tip"><strong>💡 Pro Tip</strong>Starting at 25 with ₹1,000/month beats starting at 35 with ₹5,000/month. Time is the real secret.</div>
       </div>
     </div>
+
+    <!-- LUMPSUM -->
     <div class="calc-wrapper">
       <div class="calc-card">
-        <div class="calc-header"><div class="calc-icon teal">💵</div><div><div class="calc-title">Lump Sum Calculator</div><div class="calc-desc">One-time investment growth</div></div></div>
+        <div class="calc-header">
+          <div class="calc-icon teal">💵</div>
+          <div><div class="calc-title">Lump Sum Calculator</div><div class="calc-desc">One-time investment growth</div></div>
+        </div>
         <label>Investment Amount (₹)</label>
         <input type="number" id="ls-amt" value="100000" oninput="updateLS()">
         <label>Expected Annual Return (%) <span class="range-val" id="ls-rate-v">12%</span></label>
@@ -337,23 +446,28 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
         <div class="result-box">
           <div class="result-row"><span class="rlbl">Invested Amount</span><span class="rval" id="ls-inv">—</span></div>
           <hr class="result-divider">
-          <div class="result-row"><span class="rlbl">Wealth Gained</span><span class="rval" id="ls-gain">—</span></div>
+          <div class="result-row"><span class="rlbl">Wealth Gained</span><span class="rval up" id="ls-gain">—</span></div>
           <div class="result-row"><span class="rlbl">Final Value</span><span class="rval highlight" id="ls-total">—</span></div>
         </div>
       </div>
       <div class="guide-panel">
         <div class="guide-head">📖 What is Lump Sum?</div>
-        <p class="guide-what">You invest a large one-time amount and leave it to grow. Best used when you receive a bonus, gift, or tax refund.</p>
+        <p class="guide-what">You invest a large one-time amount and leave it to grow. Best used when you receive a bonus, gift, tax refund, or inheritance.</p>
         <div class="guide-terms">
           <div class="guide-term"><span class="guide-term-key">Rule of 72</span><span class="guide-term-val">Divide 72 by your return % to know when money doubles. At 12%, money doubles every 6 years.</span></div>
-          <div class="guide-term"><span class="guide-term-key">STP</span><span class="guide-term-val">If markets are high, invest in liquid fund first and transfer monthly to equity (Systematic Transfer Plan).</span></div>
+          <div class="guide-term"><span class="guide-term-key">STP</span><span class="guide-term-val">If markets are high, use Systematic Transfer Plan — invest lump sum into liquid fund first, then transfer monthly to equity.</span></div>
         </div>
-        <div class="guide-tip"><strong>💡 Pro Tip</strong>Never invest 100% of a windfall at once. Split: 50% now, 50% via STP over 6 months to reduce timing risk.</div>
+        <div class="guide-tip"><strong>💡 Pro Tip</strong>Never invest 100% of a windfall at once. Split: 50% lump sum now, 50% via STP over 6 months to reduce timing risk.</div>
       </div>
     </div>
+
+    <!-- CAGR -->
     <div class="calc-wrapper">
       <div class="calc-card">
-        <div class="calc-header"><div class="calc-icon purple">📊</div><div><div class="calc-title">CAGR Calculator</div><div class="calc-desc">Compound Annual Growth Rate</div></div></div>
+        <div class="calc-header">
+          <div class="calc-icon purple">📊</div>
+          <div><div class="calc-title">CAGR Calculator</div><div class="calc-desc">Compound Annual Growth Rate</div></div>
+        </div>
         <div class="two-col">
           <div><label>Initial Value (₹)</label><input type="number" id="cagr-init" value="50000" oninput="updateCAGR()"></div>
           <div><label>Final Value (₹)</label><input type="number" id="cagr-final" value="150000" oninput="updateCAGR()"></div>
@@ -362,24 +476,30 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
         <input type="number" id="cagr-yr" value="5" min="1" oninput="updateCAGR()">
         <div class="result-box">
           <div class="result-row"><span class="rlbl">CAGR</span><span class="rval highlight" id="cagr-result">—</span></div>
-          <div class="result-row"><span class="rlbl">Absolute Return</span><span class="rval" id="cagr-abs">—</span></div>
+          <div class="result-row"><span class="rlbl">Absolute Return</span><span class="rval up" id="cagr-abs">—</span></div>
           <div class="result-row"><span class="rlbl">Total Gain</span><span class="rval" id="cagr-gain">—</span></div>
         </div>
       </div>
       <div class="guide-panel">
         <div class="guide-head">📖 What is CAGR?</div>
-        <p class="guide-what">CAGR is the "smoothed" yearly growth rate of any investment. It tells you how fast your money grew each year on average.</p>
+        <p class="guide-what">CAGR is the "smoothed" yearly growth rate of any investment. It tells you how fast your money grew each year on average — useful for comparing different investments.</p>
         <div class="guide-terms">
           <div class="guide-term"><span class="guide-term-key">Nifty 50</span><span class="guide-term-val">20-year CAGR ≈ 14–15%</span></div>
           <div class="guide-term"><span class="guide-term-key">FD</span><span class="guide-term-val">CAGR ≈ 6–7.5%</span></div>
           <div class="guide-term"><span class="guide-term-key">Gold</span><span class="guide-term-val">10-year CAGR ≈ 8–11%</span></div>
+          <div class="guide-term"><span class="guide-term-key">Real Estate</span><span class="guide-term-val">City-dependent, roughly 6–10%</span></div>
         </div>
         <div class="guide-tip"><strong>💡 Pro Tip</strong>Always compare investments by CAGR — not by total returns. A 3x return in 2 years is far better than a 3x return in 10 years.</div>
       </div>
     </div>
+
+    <!-- GOAL SIP -->
     <div class="calc-wrapper">
       <div class="calc-card">
-        <div class="calc-header"><div class="calc-icon green">🎯</div><div><div class="calc-title">Goal-Based SIP</div><div class="calc-desc">How much to invest monthly?</div></div></div>
+        <div class="calc-header">
+          <div class="calc-icon green">🎯</div>
+          <div><div class="calc-title">Goal-Based SIP</div><div class="calc-desc">How much to invest monthly?</div></div>
+        </div>
         <label>Target Amount (₹)</label>
         <input type="number" id="goal-target" value="1000000" oninput="updateGoal()">
         <label>Expected Annual Return (%) <span class="range-val" id="goal-rate-v">12%</span></label>
@@ -389,26 +509,32 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
         <div class="result-box">
           <div class="result-row"><span class="rlbl">Required Monthly SIP</span><span class="rval highlight" id="goal-sip">—</span></div>
           <div class="result-row"><span class="rlbl">Total Investment</span><span class="rval" id="goal-inv">—</span></div>
-          <div class="result-row"><span class="rlbl">Wealth Created by Market</span><span class="rval" id="goal-wealth">—</span></div>
+          <div class="result-row"><span class="rlbl">Wealth Created by Market</span><span class="rval up" id="goal-wealth">—</span></div>
         </div>
       </div>
       <div class="guide-panel">
         <div class="guide-head">📖 What is Goal SIP?</div>
-        <p class="guide-what">Instead of asking "how much will I get?", it asks "how much must I invest to reach my goal?" Perfect for planning a house, education, or retirement.</p>
+        <p class="guide-what">This is the reverse of SIP — instead of asking "how much will I get?", it asks "how much must I invest to reach my goal?" Perfect for planning a house, child's education, or retirement.</p>
         <div class="guide-terms">
           <div class="guide-term"><span class="guide-term-key">Inflation</span><span class="guide-term-val">Add 20–30% extra to your goal to account for rising prices over the years.</span></div>
-          <div class="guide-term"><span class="guide-term-key">Step-Up</span><span class="guide-term-val">Increasing your SIP by 10% yearly dramatically cuts the required monthly amount.</span></div>
+          <div class="guide-term"><span class="guide-term-key">Step-Up</span><span class="guide-term-val">Increase your SIP by 10% every year. This dramatically cuts the required monthly amount.</span></div>
         </div>
-        <div class="guide-tip"><strong>💡 Example</strong>Want ₹1 Crore in 20 years? Just ~₹1,010/month at 15% return. Start today, not tomorrow.</div>
+        <div class="guide-tip"><strong>💡 Example</strong>Want ₹1 Crore in 20 years? You need just ~₹1,010/month at 15% return. Start today, not tomorrow.</div>
       </div>
     </div>
-  </div><!-- /tab-invest -->
 
-  <!-- LOANS TAB -->
+  </div><!-- end tab-invest -->
+
+  <!-- ═══════════════════════════════════════════════ LOANS TAB -->
   <div id="tab-loans" class="tab-pane">
+
+    <!-- HOME LOAN EMI -->
     <div class="calc-wrapper">
       <div class="calc-card">
-        <div class="calc-header"><div class="calc-icon gold">🏠</div><div><div class="calc-title">Home Loan EMI</div><div class="calc-desc">Monthly EMI &amp; total interest</div></div></div>
+        <div class="calc-header">
+          <div class="calc-icon gold">🏠</div>
+          <div><div class="calc-title">Home Loan EMI</div><div class="calc-desc">Monthly EMI & total interest</div></div>
+        </div>
         <label>Loan Amount (₹) <span class="range-val" id="hl-amt-v">₹30L</span></label>
         <input type="range" min="100000" max="10000000" step="100000" value="3000000" oninput="updateHL()" id="hl-amt">
         <label>Interest Rate (% p.a.) <span class="range-val" id="hl-rate-v">8.5%</span></label>
@@ -419,24 +545,29 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
           <div class="result-row"><span class="rlbl">Monthly EMI</span><span class="rval highlight" id="hl-emi">—</span></div>
           <hr class="result-divider">
           <div class="result-row"><span class="rlbl">Principal</span><span class="rval" id="hl-principal">—</span></div>
-          <div class="result-row"><span class="rlbl">Total Interest</span><span class="rval" id="hl-interest">—</span></div>
+          <div class="result-row"><span class="rlbl">Total Interest</span><span class="rval down" id="hl-interest">—</span></div>
           <div class="result-row"><span class="rlbl">Total Payment</span><span class="rval" id="hl-total">—</span></div>
         </div>
       </div>
       <div class="guide-panel">
         <div class="guide-head">📖 What is Home Loan EMI?</div>
-        <p class="guide-what">EMI is the fixed monthly payment to repay your home loan. It includes both the original loan (principal) and the bank's charges (interest).</p>
+        <p class="guide-what">EMI (Equated Monthly Instalment) is the fixed amount you pay your bank every month to repay your home loan. It includes both the original loan amount (principal) and the bank's charges (interest).</p>
         <div class="guide-terms">
-          <div class="guide-term"><span class="guide-term-key">Principal</span><span class="guide-term-val">The actual amount borrowed.</span></div>
-          <div class="guide-term"><span class="guide-term-key">Interest</span><span class="guide-term-val">In early years, 70–80% of your EMI is just interest!</span></div>
+          <div class="guide-term"><span class="guide-term-key">Principal</span><span class="guide-term-val">The actual amount you borrowed from the bank.</span></div>
+          <div class="guide-term"><span class="guide-term-key">Interest</span><span class="guide-term-val">The bank's fee for lending. In early years, 70–80% of your EMI is just interest!</span></div>
           <div class="guide-term"><span class="guide-term-key">Safe limit</span><span class="guide-term-val">Don't take a home loan more than 3× your annual income.</span></div>
         </div>
-        <div class="guide-tip"><strong>💡 Pro Tip</strong>Prepay extra in the first 5 years — that's when you save the most interest.</div>
+        <div class="guide-tip"><strong>💡 Pro Tip</strong>Try to prepay extra in the first 5 years. That's when you save the most interest since principal reduction is highest then.</div>
       </div>
     </div>
+
+    <!-- CAR LOAN -->
     <div class="calc-wrapper">
       <div class="calc-card">
-        <div class="calc-header"><div class="calc-icon teal">🚗</div><div><div class="calc-title">Car / Personal Loan EMI</div><div class="calc-desc">Quick loan repayment planner</div></div></div>
+        <div class="calc-header">
+          <div class="calc-icon teal">🚗</div>
+          <div><div class="calc-title">Car / Personal Loan EMI</div><div class="calc-desc">Quick loan repayment planner</div></div>
+        </div>
         <label>Loan Amount (₹)</label>
         <input type="number" id="cl-amt" value="500000" oninput="updateCL()">
         <label>Interest Rate (% p.a.) <span class="range-val" id="cl-rate-v">10%</span></label>
@@ -445,23 +576,29 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
         <input type="range" min="6" max="84" step="6" value="48" oninput="updateCL()" id="cl-mo">
         <div class="result-box">
           <div class="result-row"><span class="rlbl">Monthly EMI</span><span class="rval highlight" id="cl-emi">—</span></div>
-          <div class="result-row"><span class="rlbl">Total Interest</span><span class="rval" id="cl-interest">—</span></div>
+          <div class="result-row"><span class="rlbl">Total Interest</span><span class="rval down" id="cl-interest">—</span></div>
           <div class="result-row"><span class="rlbl">Total Payment</span><span class="rval" id="cl-total">—</span></div>
         </div>
       </div>
       <div class="guide-panel">
-        <div class="guide-head">📖 Car / Personal Loan EMI</div>
-        <p class="guide-what">Works like a home loan EMI but for shorter durations. Car loans: 1–7 years. Personal loans for any purpose but carry higher interest.</p>
+        <div class="guide-head">📖 What is Car / Personal Loan EMI?</div>
+        <p class="guide-what">Works exactly like home loan EMI — but for shorter durations. Car loans are typically 1–7 years. Personal loans can be for any purpose but come with higher interest rates.</p>
         <div class="guide-terms">
-          <div class="guide-term"><span class="guide-term-key">Car loan</span><span class="guide-term-val">8–12% interest. Keep tenure under 48 months.</span></div>
+          <div class="guide-term"><span class="guide-term-key">Car loan</span><span class="guide-term-val">Usually 8–12% interest. Keep tenure under 48 months to avoid overpaying.</span></div>
           <div class="guide-term"><span class="guide-term-key">Personal loan</span><span class="guide-term-val">10–24% interest — the most expensive loan type. Avoid if possible.</span></div>
+          <div class="guide-term"><span class="guide-term-key">Down payment</span><span class="guide-term-val">Pay 20–30% upfront to reduce EMI and total interest paid.</span></div>
         </div>
-        <div class="guide-tip"><strong>⚠️ Remember</strong>A car loses value every year. Shorter loan tenure = less interest wasted on a depreciating asset.</div>
+        <div class="guide-tip"><strong>⚠️ Remember</strong>A car loses value every year (depreciating asset). Shorter loan tenure = less interest wasted on something that's already losing worth.</div>
       </div>
     </div>
+
+    <!-- PREPAYMENT -->
     <div class="calc-wrapper">
       <div class="calc-card">
-        <div class="calc-header"><div class="calc-icon green">💡</div><div><div class="calc-title">Loan Prepayment Savings</div><div class="calc-desc">Save interest by paying early</div></div></div>
+        <div class="calc-header">
+          <div class="calc-icon green">💡</div>
+          <div><div class="calc-title">Loan Prepayment Savings</div><div class="calc-desc">Save interest by paying early</div></div>
+        </div>
         <label>Outstanding Loan (₹)</label>
         <input type="number" id="pp-loan" value="2000000" oninput="updatePP()">
         <label>Interest Rate (% p.a.) <span class="range-val" id="pp-rate-v">8.5%</span></label>
@@ -472,29 +609,39 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
         <input type="number" id="pp-amt" value="200000" oninput="updatePP()">
         <div class="result-box">
           <div class="result-row"><span class="rlbl">Interest Saved</span><span class="rval highlight" id="pp-saved">—</span></div>
-          <div class="result-row"><span class="rlbl">Tenure Reduced By</span><span class="rval" id="pp-tenure">—</span></div>
+          <div class="result-row"><span class="rlbl">Tenure Reduced By</span><span class="rval up" id="pp-tenure">—</span></div>
         </div>
       </div>
       <div class="guide-panel">
         <div class="guide-head">📖 What is Loan Prepayment?</div>
-        <p class="guide-what">Prepayment means paying extra money towards your loan before the EMI date. Even a small extra payment directly reduces your principal and saves huge interest.</p>
+        <p class="guide-what">Prepayment means paying extra money towards your loan before the EMI date. Even a small extra payment directly reduces your outstanding principal and saves a huge amount of interest over time.</p>
         <div class="guide-terms">
-          <div class="guide-term"><span class="guide-term-key">Part-prepay</span><span class="guide-term-val">Even ₹50,000 once a year makes a big difference over 20 years.</span></div>
+          <div class="guide-term"><span class="guide-term-key">Principal</span><span class="guide-term-val">Every extra rupee you pay reduces the principal, which reduces future interest.</span></div>
+          <div class="guide-term"><span class="guide-term-key">Part-prepay</span><span class="guide-term-val">You don't need to close the loan — even ₹50,000 once a year makes a big difference.</span></div>
         </div>
-        <div class="guide-tip"><strong>💡 Best Time</strong>Prepay in the first 5–7 years of a home loan — that's when your EMI is mostly interest.</div>
+        <div class="guide-tip"><strong>💡 Best Time</strong>Prepay in the first 5–7 years of a home loan. That's when your EMI is mostly interest, so every prepayment saves the most.</div>
       </div>
     </div>
-  </div><!-- /tab-loans -->
 
-  <!-- TAX TAB -->
+  </div><!-- end tab-loans -->
+
+  <!-- ═══════════════════════════════════════════════ TAX TAB -->
   <div id="tab-tax" class="tab-pane">
+
+    <!-- INCOME TAX -->
     <div class="calc-wrapper">
       <div class="calc-card">
-        <div class="calc-header"><div class="calc-icon blue">📋</div><div><div class="calc-title">Income Tax Calculator</div><div class="calc-desc">FY 2024–25 · New &amp; Old Regime</div></div></div>
+        <div class="calc-header">
+          <div class="calc-icon blue">📋</div>
+          <div><div class="calc-title">Income Tax Calculator</div><div class="calc-desc">FY 2024–25 • New & Old Regime</div></div>
+        </div>
         <label>Annual Income (₹)</label>
         <input type="number" id="it-income" value="1000000" oninput="updateIT()">
         <label>Regime</label>
-        <select id="it-regime" onchange="updateIT()"><option value="new">New Tax Regime</option><option value="old">Old Tax Regime</option></select>
+        <select id="it-regime" onchange="updateIT()">
+          <option value="new">New Tax Regime</option>
+          <option value="old">Old Tax Regime</option>
+        </select>
         <label>Section 80C Deductions (₹) — Old Regime only</label>
         <input type="number" id="it-80c" value="150000" oninput="updateIT()">
         <label>HRA Exemption (₹)</label>
@@ -504,26 +651,32 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
           <div class="result-row"><span class="rlbl">Total Deductions</span><span class="rval" id="it-deduct">—</span></div>
           <div class="result-row"><span class="rlbl">Taxable Income</span><span class="rval" id="it-taxable">—</span></div>
           <hr class="result-divider">
-          <div class="result-row"><span class="rlbl">Tax + Cess (4%)</span><span class="rval" id="it-tax">—</span></div>
+          <div class="result-row"><span class="rlbl">Tax + Cess (4%)</span><span class="rval down" id="it-tax">—</span></div>
           <div class="result-row"><span class="rlbl">Effective Tax Rate</span><span class="rval" id="it-rate">—</span></div>
           <div class="result-row"><span class="rlbl">Monthly Take-Home</span><span class="rval highlight" id="it-monthly">—</span></div>
         </div>
       </div>
       <div class="guide-panel">
-        <div class="guide-head">📖 Income Tax — Simply</div>
-        <p class="guide-what">The government takes a percentage of your income. How much depends on which "regime" you choose and your deductions.</p>
+        <div class="guide-head">📖 Income Tax — Explained Simply</div>
+        <p class="guide-what">The government takes a percentage of your income as tax. How much depends on which "regime" (set of rules) you choose and your deductions.</p>
         <div class="guide-terms">
-          <div class="guide-term"><span class="guide-term-key">New Regime</span><span class="guide-term-val">Lower rates, no deductions. Best if deductions are low.</span></div>
-          <div class="guide-term"><span class="guide-term-key">Old Regime</span><span class="guide-term-val">Higher rates but allows 80C, HRA etc. Better if deductions exceed ₹3.75L.</span></div>
-          <div class="guide-term"><span class="guide-term-key">Section 80C</span><span class="guide-term-val">Invest ₹1.5L in PPF, ELSS, LIC etc. and reduce taxable income.</span></div>
-          <div class="guide-term"><span class="guide-term-key">Cess</span><span class="guide-term-val">4% extra on your tax. Goes to education and health funds.</span></div>
+          <div class="guide-term"><span class="guide-term-key">New Regime</span><span class="guide-term-val">Lower tax rates but you can't claim most deductions. Simpler. Good if your deductions are low.</span></div>
+          <div class="guide-term"><span class="guide-term-key">Old Regime</span><span class="guide-term-val">Higher rates but allows deductions (80C, HRA, etc.). Better if deductions exceed ₹3.75L.</span></div>
+          <div class="guide-term"><span class="guide-term-key">Section 80C</span><span class="guide-term-val">Invest up to ₹1.5L in PPF, ELSS, LIC etc. and deduct it from taxable income.</span></div>
+          <div class="guide-term"><span class="guide-term-key">Cess</span><span class="guide-term-val">4% extra charge on your calculated tax. Goes to education and health funds.</span></div>
+          <div class="guide-term"><span class="guide-term-key">Std. Deduction</span><span class="guide-term-val">Auto ₹75,000 (New) or ₹50,000 (Old) deducted for all salaried people — no proof needed.</span></div>
         </div>
-        <div class="guide-tip"><strong>💡 Rule of Thumb</strong>If 80C + 80D + HRA + home loan interest exceeds ₹3.75L — choose Old Regime. Otherwise go New.</div>
+        <div class="guide-tip"><strong>💡 Rule of Thumb</strong>If your 80C + 80D + HRA + home loan interest adds up to more than ₹3.75L — choose Old Regime. Otherwise go New.</div>
       </div>
     </div>
+
+    <!-- HRA -->
     <div class="calc-wrapper">
       <div class="calc-card">
-        <div class="calc-header"><div class="calc-icon orange">🏘️</div><div><div class="calc-title">HRA Exemption</div><div class="calc-desc">How much HRA is tax-free?</div></div></div>
+        <div class="calc-header">
+          <div class="calc-icon orange">🏘️</div>
+          <div><div class="calc-title">HRA Exemption</div><div class="calc-desc">How much HRA is tax-free?</div></div>
+        </div>
         <div class="two-col">
           <div><label>Basic Salary (₹/mo)</label><input type="number" id="hra-basic" value="50000" oninput="updateHRA()"></div>
           <div><label>HRA Received (₹/mo)</label><input type="number" id="hra-recv" value="20000" oninput="updateHRA()"></div>
@@ -531,60 +684,82 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
         <label>Actual Rent Paid (₹/mo)</label>
         <input type="number" id="hra-rent" value="18000" oninput="updateHRA()">
         <label>City</label>
-        <select id="hra-city" onchange="updateHRA()"><option value="metro">Metro (Delhi / Mumbai / Chennai / Kolkata)</option><option value="nonmetro">Non-Metro</option></select>
+        <select id="hra-city" onchange="updateHRA()">
+          <option value="metro">Metro (Delhi / Mumbai / Chennai / Kolkata)</option>
+          <option value="nonmetro">Non-Metro</option>
+        </select>
         <div class="result-box">
           <div class="result-row"><span class="rlbl">HRA Exemption (Tax-Free)</span><span class="rval highlight" id="hra-exempt">—</span></div>
-          <div class="result-row"><span class="rlbl">Taxable HRA</span><span class="rval" id="hra-taxable">—</span></div>
-          <div class="result-row"><span class="rlbl">Annual Tax Saved (30% slab)</span><span class="rval" id="hra-saved">—</span></div>
+          <div class="result-row"><span class="rlbl">Taxable HRA</span><span class="rval down" id="hra-taxable">—</span></div>
+          <div class="result-row"><span class="rlbl">Annual Tax Saved (30% slab)</span><span class="rval up" id="hra-saved">—</span></div>
         </div>
       </div>
       <div class="guide-panel">
-        <div class="guide-head">📖 What is HRA?</div>
-        <p class="guide-what">HRA (House Rent Allowance) is part of your salary for rent. A portion of it can be completely tax-free — called the "exemption".</p>
+        <div class="guide-head">📖 What is HRA Exemption?</div>
+        <p class="guide-what">HRA (House Rent Allowance) is part of your salary given to cover rent. The government allows a portion of it to be tax-free — called the "exemption". This calculator tells you exactly how much you can save.</p>
         <div class="guide-terms">
           <div class="guide-term"><span class="guide-term-key">Metro</span><span class="guide-term-val">Delhi, Mumbai, Chennai, Kolkata — exemption is 50% of Basic salary.</span></div>
           <div class="guide-term"><span class="guide-term-key">Non-Metro</span><span class="guide-term-val">All other cities — exemption is 40% of Basic salary.</span></div>
-          <div class="guide-term"><span class="guide-term-key">The Rule</span><span class="guide-term-val">Exempt = lowest of: HRA received, 50%/40% of Basic, or Rent − 10% of Basic.</span></div>
+          <div class="guide-term"><span class="guide-term-key">The Rule</span><span class="guide-term-val">Exempt = lowest of: (HRA received) or (50%/40% of Basic) or (Rent paid − 10% of Basic).</span></div>
         </div>
-        <div class="guide-tip"><strong>💡 Did you know?</strong>You can pay rent to your own parents and still claim HRA — with a proper rent agreement.</div>
+        <div class="guide-tip"><strong>💡 Did you know?</strong>You can pay rent to your own parents and still claim HRA — but you need a proper rent agreement and they must show it as income in their tax return.</div>
       </div>
     </div>
+
+    <!-- CAPITAL GAINS -->
     <div class="calc-wrapper">
       <div class="calc-card">
-        <div class="calc-header"><div class="calc-icon purple">📉</div><div><div class="calc-title">Capital Gains Tax</div><div class="calc-desc">LTCG &amp; STCG on stocks / MF</div></div></div>
+        <div class="calc-header">
+          <div class="calc-icon purple">📉</div>
+          <div><div class="calc-title">Capital Gains Tax</div><div class="calc-desc">LTCG & STCG on stocks / MF</div></div>
+        </div>
         <div class="two-col">
           <div><label>Buy Price (₹)</label><input type="number" id="cg-buy" value="100000" oninput="updateCG()"></div>
           <div><label>Sell Price (₹)</label><input type="number" id="cg-sell" value="180000" oninput="updateCG()"></div>
         </div>
         <label>Asset Type</label>
-        <select id="cg-type" onchange="updateCG()"><option value="equity">Equity / Equity MF</option><option value="debt">Debt MF / Gold</option><option value="property">Property</option></select>
+        <select id="cg-type" onchange="updateCG()">
+          <option value="equity">Equity / Equity MF</option>
+          <option value="debt">Debt MF / Gold</option>
+          <option value="property">Property / Real Estate</option>
+        </select>
         <label>Holding Period</label>
-        <select id="cg-period" onchange="updateCG()"><option value="lt">Long Term</option><option value="st">Short Term</option></select>
+        <select id="cg-period" onchange="updateCG()">
+          <option value="lt">Long Term</option>
+          <option value="st">Short Term</option>
+        </select>
         <div class="result-box">
           <div class="result-row"><span class="rlbl">Profit / Loss</span><span class="rval" id="cg-profit">—</span></div>
           <div class="result-row"><span class="rlbl">Tax Rate Applicable</span><span class="rval" id="cg-rate">—</span></div>
-          <div class="result-row"><span class="rlbl">Tax Payable</span><span class="rval" id="cg-tax">—</span></div>
+          <div class="result-row"><span class="rlbl">Tax Payable</span><span class="rval down" id="cg-tax">—</span></div>
           <div class="result-row"><span class="rlbl">Net Gain After Tax</span><span class="rval highlight" id="cg-net">—</span></div>
         </div>
       </div>
       <div class="guide-panel">
         <div class="guide-head">📖 What is Capital Gains Tax?</div>
-        <p class="guide-what">When you sell an investment for more than you paid, the profit is a "capital gain" and the government taxes it.</p>
+        <p class="guide-what">When you sell an investment (stocks, mutual funds, property) for more than you paid, the profit is called a "capital gain" and the government taxes it.</p>
         <div class="guide-terms">
-          <div class="guide-term"><span class="guide-term-key">STCG</span><span class="guide-term-val">Sold within 1 year (equity). Taxed at 20%.</span></div>
-          <div class="guide-term"><span class="guide-term-key">LTCG</span><span class="guide-term-val">Held over 1 year (equity). 12.5% tax, first ₹1.25L is tax-free!</span></div>
-          <div class="guide-term"><span class="guide-term-key">Debt MF</span><span class="guide-term-val">Taxed as per your income slab regardless of holding period.</span></div>
+          <div class="guide-term"><span class="guide-term-key">STCG</span><span class="guide-term-val">Short-Term Capital Gain — sold within 1 year (equity). Taxed at 20%.</span></div>
+          <div class="guide-term"><span class="guide-term-key">LTCG</span><span class="guide-term-val">Long-Term Capital Gain — held over 1 year (equity). Only 12.5% tax, and first ₹1.25L is tax-free!</span></div>
+          <div class="guide-term"><span class="guide-term-key">Debt MF</span><span class="guide-term-val">Taxed as per your income slab regardless of holding period (post April 2023).</span></div>
+          <div class="guide-term"><span class="guide-term-key">Property</span><span class="guide-term-val">Long-term if held 2+ years. 20% with indexation (adjusting for inflation).</span></div>
         </div>
-        <div class="guide-tip"><strong>💡 Key Insight</strong>Holding equity for just 1 year reduces your tax from 20% to 12.5%, and first ₹1.25L profit is tax-free every year.</div>
+        <div class="guide-tip"><strong>💡 Key Insight</strong>Holding equity/equity MF for just 1 year can reduce your tax from 20% to 12.5% — and first ₹1.25L profit is completely tax-free every year.</div>
       </div>
     </div>
-  </div><!-- /tab-tax -->
 
-  <!-- SAVINGS TAB -->
+  </div><!-- end tab-tax -->
+
+  <!-- ═══════════════════════════════════════════════ SAVINGS TAB -->
   <div id="tab-savings" class="tab-pane">
+
+    <!-- FD -->
     <div class="calc-wrapper">
       <div class="calc-card">
-        <div class="calc-header"><div class="calc-icon teal">🏦</div><div><div class="calc-title">FD Calculator</div><div class="calc-desc">Fixed Deposit maturity amount</div></div></div>
+        <div class="calc-header">
+          <div class="calc-icon teal">🏦</div>
+          <div><div class="calc-title">FD Calculator</div><div class="calc-desc">Fixed Deposit maturity amount</div></div>
+        </div>
         <label>Principal Amount (₹)</label>
         <input type="number" id="fd-amt" value="100000" oninput="updateFD()">
         <label>Interest Rate (% p.a.) <span class="range-val" id="fd-rate-v">7%</span></label>
@@ -592,49 +767,66 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
         <label>Tenure (Years) <span class="range-val" id="fd-yr-v">3 yrs</span></label>
         <input type="range" min="1" max="10" step="1" value="3" oninput="updateFD()" id="fd-yr">
         <label>Compounding</label>
-        <select id="fd-comp" onchange="updateFD()"><option value="4">Quarterly</option><option value="12">Monthly</option><option value="2">Half-Yearly</option><option value="1">Annually</option></select>
+        <select id="fd-comp" onchange="updateFD()">
+          <option value="4">Quarterly</option>
+          <option value="12">Monthly</option>
+          <option value="2">Half-Yearly</option>
+          <option value="1">Annually</option>
+        </select>
         <div class="result-box">
           <div class="result-row"><span class="rlbl">Principal</span><span class="rval" id="fd-principal">—</span></div>
-          <div class="result-row"><span class="rlbl">Interest Earned</span><span class="rval" id="fd-interest">—</span></div>
+          <div class="result-row"><span class="rlbl">Interest Earned</span><span class="rval up" id="fd-interest">—</span></div>
           <div class="result-row"><span class="rlbl">Maturity Amount</span><span class="rval highlight" id="fd-total">—</span></div>
         </div>
       </div>
       <div class="guide-panel">
         <div class="guide-head">📖 What is an FD?</div>
-        <p class="guide-what">Fixed Deposit — you give money to a bank for a fixed time and get it back with interest. Zero risk of losing money (up to ₹5L insured by DICGC).</p>
+        <p class="guide-what">Fixed Deposit (FD) is the simplest saving option — you give money to a bank for a fixed time period and they give it back with interest. Zero risk of losing money (up to ₹5L insured by DICGC).</p>
         <div class="guide-terms">
-          <div class="guide-term"><span class="guide-term-key">TDS</span><span class="guide-term-val">If FD interest exceeds ₹40,000/year, bank auto-deducts 10% tax.</span></div>
+          <div class="guide-term"><span class="guide-term-key">Compounding</span><span class="guide-term-val">Quarterly compounding gives slightly more than annual. More frequent = more interest.</span></div>
+          <div class="guide-term"><span class="guide-term-key">TDS</span><span class="guide-term-val">If FD interest exceeds ₹40,000/year, the bank automatically deducts 10% tax (TDS).</span></div>
           <div class="guide-term"><span class="guide-term-key">Senior Citizen</span><span class="guide-term-val">Banks give 0.25–0.5% extra rate to people above 60 years.</span></div>
         </div>
-        <div class="guide-tip"><strong>💡 Smart Move</strong>FD interest is fully taxable. If you're in 30% slab, consider debt mutual funds — they're more tax-efficient.</div>
+        <div class="guide-tip"><strong>💡 Smart Move</strong>FD interest is taxable as per your slab. If you're in 30% slab, consider debt mutual funds instead — they're more tax-efficient.</div>
       </div>
     </div>
+
+    <!-- PPF -->
     <div class="calc-wrapper">
       <div class="calc-card">
-        <div class="calc-header"><div class="calc-icon gold">🛡️</div><div><div class="calc-title">PPF Calculator</div><div class="calc-desc">Public Provident Fund @ 7.1% p.a.</div></div></div>
+        <div class="calc-header">
+          <div class="calc-icon gold">🛡️</div>
+          <div><div class="calc-title">PPF Calculator</div><div class="calc-desc">Public Provident Fund @ 7.1% p.a.</div></div>
+        </div>
         <label>Yearly Investment (₹) <span class="range-val" id="ppf-amt-v">₹1,50,000</span></label>
         <input type="range" min="500" max="150000" step="500" value="150000" oninput="updatePPF()" id="ppf-amt">
         <label>Duration (Years) <span class="range-val" id="ppf-yr-v">15 yrs</span></label>
         <input type="range" min="15" max="50" step="5" value="15" oninput="updatePPF()" id="ppf-yr">
         <div class="result-box">
           <div class="result-row"><span class="rlbl">Total Invested</span><span class="rval" id="ppf-inv">—</span></div>
-          <div class="result-row"><span class="rlbl">Interest Earned (Tax-Free)</span><span class="rval" id="ppf-int">—</span></div>
+          <div class="result-row"><span class="rlbl">Interest Earned (Tax-Free)</span><span class="rval up" id="ppf-int">—</span></div>
           <div class="result-row"><span class="rlbl">Maturity Value</span><span class="rval highlight" id="ppf-total">—</span></div>
         </div>
       </div>
       <div class="guide-panel">
         <div class="guide-head">📖 What is PPF?</div>
-        <p class="guide-what">PPF (Public Provident Fund) is a government savings scheme. Completely safe, guaranteed interest, and 100% tax-free at every stage.</p>
+        <p class="guide-what">PPF (Public Provident Fund) is a government savings scheme. It's completely safe, gives guaranteed interest, and — most importantly — is 100% tax-free at every stage.</p>
         <div class="guide-terms">
-          <div class="guide-term"><span class="guide-term-key">EEE</span><span class="guide-term-val">Exempt-Exempt-Exempt: investment, interest, and maturity are all tax-free.</span></div>
-          <div class="guide-term"><span class="guide-term-key">Lock-in</span><span class="guide-term-val">15 years. Partial withdrawal allowed from year 7 onwards.</span></div>
+          <div class="guide-term"><span class="guide-term-key">EEE</span><span class="guide-term-val">Exempt-Exempt-Exempt: investment is tax-free (80C), interest is tax-free, maturity is tax-free. Best tax deal available.</span></div>
+          <div class="guide-term"><span class="guide-term-key">Lock-in</span><span class="guide-term-val">15 years. Partial withdrawal allowed from year 7 onwards. Full withdrawal only at maturity.</span></div>
+          <div class="guide-term"><span class="guide-term-key">Max limit</span><span class="guide-term-val">You can invest max ₹1.5L per year. This also saves tax under Section 80C.</span></div>
         </div>
-        <div class="guide-tip"><strong>💡 Pro Tip</strong>Deposit before the 5th of every month to earn interest for that month. Depositing on the 6th = one full month of interest lost.</div>
+        <div class="guide-tip"><strong>💡 Pro Tip</strong>Deposit before the 5th of every month to earn interest for that month. Depositing on the 6th means you lose one full month of interest.</div>
       </div>
     </div>
+
+    <!-- RD -->
     <div class="calc-wrapper">
       <div class="calc-card">
-        <div class="calc-header"><div class="calc-icon blue">📅</div><div><div class="calc-title">RD Calculator</div><div class="calc-desc">Recurring Deposit returns</div></div></div>
+        <div class="calc-header">
+          <div class="calc-icon blue">📅</div>
+          <div><div class="calc-title">RD Calculator</div><div class="calc-desc">Recurring Deposit returns</div></div>
+        </div>
         <label>Monthly Deposit (₹)</label>
         <input type="number" id="rd-amt" value="5000" oninput="updateRD()">
         <label>Interest Rate (% p.a.) <span class="range-val" id="rd-rate-v">6.5%</span></label>
@@ -643,389 +835,477 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2re
         <input type="range" min="6" max="120" step="6" value="24" oninput="updateRD()" id="rd-mo">
         <div class="result-box">
           <div class="result-row"><span class="rlbl">Total Deposited</span><span class="rval" id="rd-inv">—</span></div>
-          <div class="result-row"><span class="rlbl">Interest Earned</span><span class="rval" id="rd-int">—</span></div>
+          <div class="result-row"><span class="rlbl">Interest Earned</span><span class="rval up" id="rd-int">—</span></div>
           <div class="result-row"><span class="rlbl">Maturity Value</span><span class="rval highlight" id="rd-total">—</span></div>
         </div>
       </div>
       <div class="guide-panel">
         <div class="guide-head">📖 What is an RD?</div>
-        <p class="guide-what">Recurring Deposit — deposit a fixed amount monthly and get it back with interest after tenure. Great for building a saving habit.</p>
+        <p class="guide-what">Recurring Deposit (RD) is like an FD but in monthly instalments. You deposit a fixed amount every month and get it back with interest after the tenure ends. Great for building a habit of saving.</p>
         <div class="guide-terms">
-          <div class="guide-term"><span class="guide-term-key">vs FD</span><span class="guide-term-val">FD = lump sum. RD = monthly small amounts. RD rate is slightly lower than FD.</span></div>
-          <div class="guide-term"><span class="guide-term-key">Tax</span><span class="guide-term-val">RD interest is fully taxable as per your income slab.</span></div>
+          <div class="guide-term"><span class="guide-term-key">vs FD</span><span class="guide-term-val">FD = one lump sum. RD = monthly small amounts. RD rate is slightly lower than FD.</span></div>
+          <div class="guide-term"><span class="guide-term-key">vs SIP</span><span class="guide-term-val">RD gives fixed guaranteed returns. SIP invests in markets — higher potential but involves risk.</span></div>
+          <div class="guide-term"><span class="guide-term-key">Tax</span><span class="guide-term-val">RD interest is fully taxable as per your income slab, just like FD.</span></div>
         </div>
-        <div class="guide-tip"><strong>💡 Better Alternative</strong>For low-risk investors, a SIP in a short-duration debt fund gives better post-tax returns than an RD.</div>
+        <div class="guide-tip"><strong>💡 Better Alternative</strong>If you can tolerate low risk, a SIP in a short-duration debt mutual fund gives better post-tax returns than RD, with similar liquidity.</div>
       </div>
     </div>
-  </div><!-- /tab-savings -->
+
+  </div><!-- end tab-savings -->
 </section>
 
-<!-- ══════════ MF GUIDE ══════════ -->
+<!-- MF GUIDE SECTION (replaces old fund comparison table) -->
 <div class="market-section" id="mfguide">
   <div>
     <div class="section-label">Education</div>
     <h2 class="section-title">How to Choose a Mutual Fund</h2>
-    <p class="section-sub" style="margin-bottom:2rem;">Not all mutual funds are the same. A plain-language guide — no jargon.</p>
-    <div class="mf-guide-grid">
-      <div class="mf-type-card equity"><div class="mf-card-icon">📈</div><div class="mf-card-title">Equity Mutual Funds</div><span class="mf-card-risk risk-high">High Risk</span><div class="mf-card-body">Invests in company stocks. Highest long-term returns. Best for 10+ year goals like retirement or child's education.</div></div>
-      <div class="mf-type-card debt"><div class="mf-card-icon">🏛️</div><div class="mf-card-title">Debt Mutual Funds</div><span class="mf-card-risk risk-low">Low Risk</span><div class="mf-card-body">Invests in bonds. Stable 6–8% returns. Good for 1–3 year goals or parking money you need soon.</div></div>
-      <div class="mf-type-card hybrid"><div class="mf-card-icon">⚖️</div><div class="mf-card-title">Hybrid Funds</div><span class="mf-card-risk risk-med">Moderate Risk</span><div class="mf-card-body">Mix of stocks + bonds. Balances growth with stability. Good for first-time investors wanting market exposure.</div></div>
-      <div class="mf-type-card index"><div class="mf-card-icon">🗂️</div><div class="mf-card-title">Index Funds</div><span class="mf-card-risk risk-med">Moderate Risk</span><div class="mf-card-body">Copies an index like Nifty 50 automatically. Very low fees (0.1–0.2%). Best starting point for new investors.</div></div>
-      <div class="mf-type-card liquid"><div class="mf-card-icon">💧</div><div class="mf-card-title">Liquid Funds</div><span class="mf-card-risk risk-low">Very Low Risk</span><div class="mf-card-body">Better than savings account (6.5–7.5% returns). Money available within 1 business day. Perfect for emergency fund.</div></div>
-      <div class="mf-type-card elss"><div class="mf-card-icon">💰</div><div class="mf-card-title">ELSS Funds</div><span class="mf-card-risk risk-high">High Risk</span><div class="mf-card-body">Equity fund with 3-year lock-in. Qualifies for Section 80C deduction. Shortest lock-in among all 80C options.</div></div>
+    <p class="section-sub" style="margin-bottom:2rem;">Not all mutual funds are the same. Here's a plain-language guide to the types and what to look for — no jargon.</p>
+
+    <div class="mf-guide-grid" style="margin-bottom: 2rem;">
+      <div class="mf-type-card equity">
+        <div class="mf-card-icon">📈</div>
+        <div class="mf-card-title">Equity Mutual Funds</div>
+        <span class="mf-card-risk risk-high">High Risk</span>
+        <div class="mf-card-body">Invests your money in company stocks. Highest potential returns over long term (10+ years). Best for wealth creation goals like retirement or child's education. Avoid if you need money in 1–3 years.</div>
+      </div>
+      <div class="mf-type-card debt">
+        <div class="mf-card-icon">🏛️</div>
+        <div class="mf-card-title">Debt Mutual Funds</div>
+        <span class="mf-card-risk risk-low">Low Risk</span>
+        <div class="mf-card-body">Invests in government bonds and company loans. Stable, predictable returns (6–8%). Good for 1–3 year goals or parking money you need soon. Interest is taxed at your income slab rate.</div>
+      </div>
+      <div class="mf-type-card hybrid">
+        <div class="mf-card-icon">⚖️</div>
+        <div class="mf-card-title">Hybrid Funds</div>
+        <span class="mf-card-risk risk-med">Moderate Risk</span>
+        <div class="mf-card-body">Mix of stocks + bonds. Balances growth with stability. Good for 3–5 year goals or first-time investors who want market exposure without full equity risk.</div>
+      </div>
+      <div class="mf-type-card index">
+        <div class="mf-card-icon">🗂️</div>
+        <div class="mf-card-title">Index Funds</div>
+        <span class="mf-card-risk risk-med">Moderate Risk</span>
+        <div class="mf-card-body">Copies an index like Nifty 50 automatically. Very low fees (0.1–0.2%). Historically beats 80% of actively managed funds over 10 years. Best starting point for new investors.</div>
+      </div>
+      <div class="mf-type-card liquid">
+        <div class="mf-card-icon">💧</div>
+        <div class="mf-card-title">Liquid Funds</div>
+        <span class="mf-card-risk risk-low">Very Low Risk</span>
+        <div class="mf-card-body">Better than savings account (6.5–7.5% returns). Money available within 1 business day. Perfect for your emergency fund or to park money for a short time.</div>
+      </div>
+      <div class="mf-type-card elss">
+        <div class="mf-card-icon">💰</div>
+        <div class="mf-card-title">ELSS Funds</div>
+        <span class="mf-card-risk risk-high">High Risk</span>
+        <div class="mf-card-body">Equity fund with a 3-year lock-in. Qualifies for Section 80C deduction (save up to ₹46,800 in tax). Shortest lock-in among all 80C options. High historical returns (12–18% CAGR).</div>
+      </div>
     </div>
+
     <div class="mf-checklist">
       <div class="mf-checklist-title">📋 Before Investing: What to Check</div>
-      <div class="mf-check-item"><div class="mf-check-num">1</div><div class="mf-check-text"><strong>Expense Ratio</strong><span>Lower is always better. Direct Plans: 0.1–0.5%. Regular Plans: 1–2%. Always choose Direct Plan.</span></div></div>
-      <div class="mf-check-item"><div class="mf-check-num">2</div><div class="mf-check-text"><strong>Direct vs Regular Plan</strong><span>Regular Plans pay commissions to agents from your returns. Direct Plans cut the middleman — same fund, 0.5–1% more returns per year.</span></div></div>
-      <div class="mf-check-item"><div class="mf-check-num">3</div><div class="mf-check-text"><strong>Investment Horizon</strong><span>Equity funds need 5+ years to smooth out market ups and downs. Need money in 2 years? Use debt or liquid funds.</span></div></div>
-      <div class="mf-check-item"><div class="mf-check-num">4</div><div class="mf-check-text"><strong>Risk Level</strong><span>Match the fund's risk to your comfort. If a 20% drop in one month would make you panic-sell, stay with moderate risk.</span></div></div>
-      <div class="mf-check-item"><div class="mf-check-num">5</div><div class="mf-check-text"><strong>Exit Load</strong><span>Some funds charge 0.5–1% fee if you withdraw before 1 year. Always check this before investing.</span></div></div>
+      <div class="mf-check-item">
+        <div class="mf-check-num">1</div>
+        <div class="mf-check-text"><strong>Expense Ratio</strong><span>The annual fee you pay for the fund to be managed. Lower is better. Direct Plans have 0.1–0.5%; Regular Plans charge 1–2%. Always choose Direct Plan.</span></div>
+      </div>
+      <div class="mf-check-item">
+        <div class="mf-check-num">2</div>
+        <div class="mf-check-text"><strong>Direct vs Regular Plan</strong><span>Regular Plans are sold through agents who earn a commission from your returns. Direct Plans cut the middleman. Same fund, 0.5–1% more returns per year — huge over 20 years.</span></div>
+      </div>
+      <div class="mf-check-item">
+        <div class="mf-check-num">3</div>
+        <div class="mf-check-text"><strong>Investment Horizon (Your Time)</strong><span>Equity funds need 5+ years to smooth out market ups and downs. If you need money in 2 years, don't put it in equity — use debt or liquid funds.</span></div>
+      </div>
+      <div class="mf-check-item">
+        <div class="mf-check-num">4</div>
+        <div class="mf-check-text"><strong>Risk Level</strong><span>Every fund has a risk label: Low / Moderate / High / Very High. Match it to your comfort. If a 20% drop in one month would make you panic-sell, stay with moderate risk funds.</span></div>
+      </div>
+      <div class="mf-check-item">
+        <div class="mf-check-num">5</div>
+        <div class="mf-check-text"><strong>Exit Load</strong><span>Some funds charge a fee (0.5–1%) if you withdraw money before a certain period (usually 1 year). Always check this before investing.</span></div>
+      </div>
     </div>
-    <p style="font-size:.75rem;color:var(--text3);margin-top:1rem;">⚠️ General financial education only. Past performance doesn't guarantee future returns. Consult a SEBI-registered advisor before investing.</p>
+    <p style="font-size:0.75rem;color:var(--text3);margin-top:1rem;">⚠️ This is general financial education. Past performance doesn't guarantee future returns. Consult a SEBI-registered advisor before investing.</p>
   </div>
 </div>
 
-<!-- ══════════ INVESTMENT TIPS ══════════ -->
+<!-- INVESTMENT TIPS -->
 <section id="tips">
   <div class="section-label">Knowledge</div>
   <h2 class="section-title">Investment Tips</h2>
-  <p class="section-sub">Practical wisdom to grow your wealth steadily. Click any card to read the full guide.</p>
+  <p class="section-sub">Practical wisdom to grow your wealth steadily, even on a regular salary.</p>
   <div class="tips-grid">
-    <div class="tip-card" onclick="openArticle('tip-sip-500')"><span class="tip-tag tag-invest">Investing</span><div class="tip-title">Start SIP with even ₹500/month</div><div class="tip-body">You don't need lakhs to start investing. A ₹500 SIP in an index fund grows to ₹15L+ in 30 years at 12% returns. The habit matters more than the amount.</div><div class="tip-read">Read full article →</div></div>
-    <div class="tip-card" onclick="openArticle('tip-index-funds')"><span class="tip-tag tag-invest">Investing</span><div class="tip-title">Index funds beat most active funds long-term</div><div class="tip-body">Over 10 years, 80%+ of actively managed funds underperform the Nifty 50 index. An index fund with 0.1% expense ratio beats a 2% ratio fund by enormous margins.</div><div class="tip-read">Read full article →</div></div>
-    <div class="tip-card" onclick="openArticle('tip-asset-alloc')"><span class="tip-tag tag-invest">Investing</span><div class="tip-title">Asset allocation: the only free lunch</div><div class="tip-body">60% equity for growth, 30% debt for stability, 10% gold as hedge. Rebalance every year. This single rule can protect you in market crashes.</div><div class="tip-read">Read full article →</div></div>
-    <div class="tip-card" onclick="openArticle('tip-time-market')"><span class="tip-tag tag-invest">Investing</span><div class="tip-title">Never time the market, time in the market</div><div class="tip-body">Staying invested through market crashes always outperforms trying to sell and rebuy at the bottom. Missing just 10 best days halves your 20-year returns.</div><div class="tip-read">Read full article →</div></div>
-    <div class="tip-card" onclick="openArticle('tip-emergency')"><span class="tip-tag tag-savings">Savings</span><div class="tip-title">Build a 6-month emergency fund first</div><div class="tip-body">Before investing, park 6 months of expenses in a liquid fund. This prevents you from redeeming long-term investments in a crisis.</div><div class="tip-read">Read full article →</div></div>
-    <div class="tip-card" onclick="openArticle('tip-50-30-20')"><span class="tip-tag tag-savings">Savings</span><div class="tip-title">The 50-30-20 budget rule</div><div class="tip-body">50% on needs (rent, food), 30% on wants (dining, travel), 20% on savings/investments. This one rule changes your financial life if followed consistently.</div><div class="tip-read">Read full article →</div></div>
-    <div class="tip-card" onclick="openArticle('tip-step-up')"><span class="tip-tag tag-invest">Investing</span><div class="tip-title">Step-up your SIP by 10% every year</div><div class="tip-body">A 10% annual step-up can make your corpus 2–3x larger than a flat SIP. As your salary grows, your investments should grow with it.</div><div class="tip-read">Read full article →</div></div>
-    <div class="tip-card" onclick="openArticle('tip-nps')"><span class="tip-tag tag-invest">Investing</span><div class="tip-title">Invest in NPS for guaranteed retirement</div><div class="tip-body">NPS gives additional ₹50,000 deduction under 80CCD(1B) beyond 80C limits. Low cost + equity exposure = ideal for a secure retirement corpus.</div><div class="tip-read">Read full article →</div></div>
+    <div class="tip-card"><span class="tip-tag tag-invest">Investing</span><div class="tip-title">Start SIP with even ₹500/month</div><div class="tip-body">You don't need lakhs to start investing. A ₹500 SIP in an index fund grows to ₹15L+ in 30 years at 12% returns. The habit matters more than the amount.</div></div>
+    <div class="tip-card"><span class="tip-tag tag-invest">Investing</span><div class="tip-title">Index funds beat most active funds long-term</div><div class="tip-body">Over a 10-year period, 80%+ of actively managed funds underperform the Nifty 50 index. An index fund with 0.1% expense ratio beats a fund with 2% ratio by enormous margins.</div></div>
+    <div class="tip-card"><span class="tip-tag tag-invest">Investing</span><div class="tip-title">Asset allocation: the only free lunch</div><div class="tip-body">Divide your portfolio: 60% equity for growth, 30% debt for stability, 10% gold as hedge. Rebalance every year. This single rule can protect you in market crashes.</div></div>
+    <div class="tip-card"><span class="tip-tag tag-invest">Investing</span><div class="tip-title">Never time the market, time in the market</div><div class="tip-body">Staying invested through market crashes always outperforms trying to sell and rebuy at the bottom. Missing the top 10 best days in NIFTY halves your 20-year returns.</div></div>
+    <div class="tip-card"><span class="tip-tag tag-savings">Savings</span><div class="tip-title">Build a 6-month emergency fund first</div><div class="tip-body">Before investing, park 6 months of expenses in a liquid fund or high-interest savings account. This prevents you from redeeming long-term investments in a crisis.</div></div>
+    <div class="tip-card"><span class="tip-tag tag-savings">Savings</span><div class="tip-title">The 50-30-20 budget rule</div><div class="tip-body">50% of take-home on needs (rent, food), 30% on wants (dining, travel), 20% on savings/investments. This one rule changes your financial life if followed consistently.</div></div>
+    <div class="tip-card"><span class="tip-tag tag-invest">Investing</span><div class="tip-title">Step-up your SIP by 10% every year</div><div class="tip-body">If you step up your SIP by 10% annually, your corpus can be 2–3x larger than a flat SIP. As your salary grows, your investments should grow with it.</div></div>
+    <div class="tip-card"><span class="tip-tag tag-invest">Investing</span><div class="tip-title">Invest in NPS for guaranteed retirement</div><div class="tip-body">NPS gives additional ₹50,000 deduction under 80CCD(1B) beyond 80C limits. At low cost and with equity exposure, it's ideal for a secure retirement corpus.</div></div>
   </div>
 </section>
 
-<!-- ══════════ BUSINESS IDEAS ══════════ -->
-<section id="business" style="background:var(--bg2);max-width:100%;padding:5rem 2rem;">
-  <div style="max-width:1200px;margin:0 auto;">
+<!-- BUSINESS IDEAS -->
+<section id="business" style="background: var(--bg2); max-width: 100%; padding: 5rem 2rem;">
+  <div style="max-width: 1200px; margin: 0 auto;">
     <div class="section-label">Entrepreneurship</div>
     <h2 class="section-title">Business Ideas for 2025</h2>
-    <p class="section-sub">Low-capital, high-potential ideas for regular Indians. Click any card to read the full guide.</p>
+    <p class="section-sub">Low-capital, high-potential business ideas for regular Indians.</p>
     <div class="tips-grid">
-      <div class="tip-card" onclick="openArticle('biz-youtube')"><span class="tip-tag tag-business">Business</span><div class="tip-title">YouTube / Short-Video Content Creation</div><div class="tip-body">₹0–5,000 to start. Pick a niche: finance, cooking, fitness, education. Ads + brand deals can reach ₹50,000–5L/month within 1–2 years of consistent effort.</div><div class="tip-read">Read full article →</div></div>
-      <div class="tip-card" onclick="openArticle('biz-tiffin')"><span class="tip-tag tag-business">Business</span><div class="tip-title">Tiffin / Home-Cooked Meal Delivery</div><div class="tip-body">₹5,000–15,000 startup. Serve office workers and PG residents. 30 customers × ₹150/meal × 25 days = ₹1.1L/month revenue with 40%+ margins.</div><div class="tip-read">Read full article →</div></div>
-      <div class="tip-card" onclick="openArticle('biz-digital-mktg')"><span class="tip-tag tag-business">Business</span><div class="tip-title">Freelance Digital Marketing</div><div class="tip-body">Free to start. Learn Google Ads, Meta Ads, SEO on YouTube. Indian SMBs desperately need digital presence. ₹15,000–50,000/client/month is standard.</div><div class="tip-read">Read full article →</div></div>
-      <div class="tip-card" onclick="openArticle('biz-amazon')"><span class="tip-tag tag-business">Business</span><div class="tip-title">Amazon / Flipkart Reselling</div><div class="tip-body">₹10,000–20,000 capital. Source from manufacturers in Surat, Delhi, or Indore. Many sellers turn ₹20,000 into ₹80,000+ profit in 90 days.</div><div class="tip-read">Read full article →</div></div>
-      <div class="tip-card" onclick="openArticle('biz-tuition')"><span class="tip-tag tag-business">Business</span><div class="tip-title">Online Tuition / Coaching</div><div class="tip-body">₹500–2,000/hour if you're good at any subject. Platforms like Superprof, UrbanPro. 10 students × ₹3,000/month = ₹30,000 extra monthly.</div><div class="tip-read">Read full article →</div></div>
-      <div class="tip-card" onclick="openArticle('biz-dropshipping')"><span class="tip-tag tag-business">Business</span><div class="tip-title">Dropshipping with Shopify / Meesho</div><div class="tip-body">₹3,000–10,000 to start. No need to hold inventory. List supplier products, take orders, ship directly. Meesho makes it simpler for new entrepreneurs.</div><div class="tip-read">Read full article →</div></div>
-      <div class="tip-card" onclick="openArticle('biz-pet-care')"><span class="tip-tag tag-business">Business</span><div class="tip-title">Pet Care &amp; Dog Walking</div><div class="tip-body">₹0 startup cost. Urban India pet ownership has exploded. Dog walking (₹800/day/dog), pet boarding (₹500–1,200/night). Low competition, high demand.</div><div class="tip-read">Read full article →</div></div>
-      <div class="tip-card" onclick="openArticle('biz-print-demand')"><span class="tip-tag tag-business">Business</span><div class="tip-title">Print-on-Demand T-shirts</div><div class="tip-body">Create designs on Canva, list on Redbubble or Shopify, connect with a print-on-demand service. Zero inventory, automated fulfillment, passive income.</div><div class="tip-read">Read full article →</div></div>
+      <div class="tip-card"><span class="tip-tag tag-business">Business</span><div class="tip-title">YouTube / Short-Video Content Creation</div><div class="tip-body">₹0–5,000 to start. Pick a niche: finance, cooking, fitness, education. Monetization through ads + brand deals can reach ₹50,000–5L/month within 1–2 years of consistent effort.</div></div>
+      <div class="tip-card"><span class="tip-tag tag-business">Business</span><div class="tip-title">Tiffin / Home-Cooked Meal Delivery</div><div class="tip-body">₹5,000–15,000 startup. Serve office workers and PG residents. 30 customers × ₹150/meal × 25 days = ₹1.1L/month revenue with 40%+ margins.</div></div>
+      <div class="tip-card"><span class="tip-tag tag-business">Business</span><div class="tip-title">Freelance Digital Marketing</div><div class="tip-body">Free to start. Learn Google Ads, Meta Ads, SEO on YouTube. Indian SMBs desperately need digital presence. ₹15,000–50,000/client/month is standard agency pricing.</div></div>
+      <div class="tip-card"><span class="tip-tag tag-business">Business</span><div class="tip-title">Amazon / Flipkart Reselling</div><div class="tip-body">₹10,000–20,000 capital. Source products from manufacturers in Surat, Delhi, or Indore. List on marketplaces. Many sellers turn ₹20,000 into ₹80,000+ profit in 90 days.</div></div>
+      <div class="tip-card"><span class="tip-tag tag-business">Business</span><div class="tip-title">Online Tuition / Coaching</div><div class="tip-body">If you're good in any subject, you can charge ₹500–2,000/hour. Platforms like Superprof, UrbanPro, or your own social media. 10 students × ₹3,000/month = ₹30,000 extra.</div></div>
+      <div class="tip-card"><span class="tip-tag tag-business">Business</span><div class="tip-title">Dropshipping with Shopify / Meesho</div><div class="tip-body">₹3,000–10,000 to start. No need to hold inventory. List supplier products, take orders, ship directly. Meesho makes it even simpler for new entrepreneurs.</div></div>
+      <div class="tip-card"><span class="tip-tag tag-business">Business</span><div class="tip-title">Pet Care & Dog Walking</div><div class="tip-body">₹0 startup cost. Urban India pet ownership exploded. Dog walking (₹800/day/dog), pet boarding (₹500–1,200/night), grooming services. Low competition, high demand.</div></div>
+      <div class="tip-card"><span class="tip-tag tag-business">Business</span><div class="tip-title">Print-on-Demand T-shirts</div><div class="tip-body">Create designs on Canva, list on Redbubble or your Shopify store, connect with a print-on-demand service. Zero inventory, automated fulfillment, passive income.</div></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════ BANKING TIPS ══════════ -->
+<!-- BANKING TIPS -->
 <section id="banking">
   <div class="section-label">Banking</div>
   <h2 class="section-title">Smart Banking Tips</h2>
-  <p class="section-sub">Maximize what your bank gives you and avoid hidden charges. Click any card to read the full guide.</p>
+  <p class="section-sub">Maximize what your bank gives you and avoid hidden charges.</p>
   <div class="tips-grid">
-    <div class="tip-card" onclick="openArticle('bank-zero-bal')"><span class="tip-tag tag-banking">Banking</span><div class="tip-title">Use a zero-balance savings account</div><div class="tip-body">Jupiter, Fi Money, IDFC First, and Kotak 811 offer zero MAB accounts. No more ₹500 penalty for falling below minimum balance.</div><div class="tip-read">Read full article →</div></div>
-    <div class="tip-card" onclick="openArticle('bank-liquid-fund')"><span class="tip-tag tag-banking">Banking</span><div class="tip-title">Park idle cash in liquid mutual funds</div><div class="tip-body">Savings account earns 2.5–4%. Liquid mutual funds return 6.5–7.5% with same-day redemption. Move everything beyond immediate needs here.</div><div class="tip-read">Read full article →</div></div>
-    <div class="tip-card" onclick="openArticle('bank-credit-card')"><span class="tip-tag tag-banking">Banking</span><div class="tip-title">Use credit cards only if you pay in full</div><div class="tip-body">Credit card interest is 36–42% per year. But if you pay fully every month, reward points and cashback make them genuinely profitable tools.</div><div class="tip-read">Read full article →</div></div>
-    <div class="tip-card" onclick="openArticle('bank-no-loan')"><span class="tip-tag tag-banking">Banking</span><div class="tip-title">Avoid bank loans for consumption</div><div class="tip-body">Personal loans for phones, clothes, or holidays create debt traps. If you can't buy it from savings, you can't afford it. Exception: urgent medical needs.</div><div class="tip-read">Read full article →</div></div>
-    <div class="tip-card" onclick="openArticle('bank-cibil')"><span class="tip-tag tag-banking">Banking</span><div class="tip-title">Check your CIBIL score every 3 months</div><div class="tip-body">A 750+ CIBIL score gets you lower interest rates on home loans — potentially saving ₹5–10L over the loan term. Check free at CIBIL or Experian.</div><div class="tip-read">Read full article →</div></div>
-    <div class="tip-card" onclick="openArticle('bank-automate')"><span class="tip-tag tag-banking">Banking</span><div class="tip-title">Automate bill payments, never miss a due date</div><div class="tip-body">A single missed credit card payment drops your CIBIL score by 50–100 points. Set auto-debit for minimum amount always. Late fees are pure waste.</div><div class="tip-read">Read full article →</div></div>
+    <div class="tip-card"><span class="tip-tag tag-banking">Banking</span><div class="tip-title">Use a zero-balance savings account</div><div class="tip-body">Jupiter, Fi Money, IDFC First, and Kotak 811 offer zero MAB savings accounts. No more ₹500 penalty for falling below minimum balance.</div></div>
+    <div class="tip-card"><span class="tip-tag tag-banking">Banking</span><div class="tip-title">Park idle cash in liquid mutual funds</div><div class="tip-body">Your savings account earns 2.5–4%. Liquid mutual funds return 6.5–7.5% with same-day redemption. Move everything beyond your immediate needs here.</div></div>
+    <div class="tip-card"><span class="tip-tag tag-banking">Banking</span><div class="tip-title">Use credit cards only if you pay in full</div><div class="tip-body">Credit card interest is 36–42% per year — among the costliest debt. But if you pay fully every month, reward points and cashback make them genuinely profitable tools.</div></div>
+    <div class="tip-card"><span class="tip-tag tag-banking">Banking</span><div class="tip-title">Avoid bank loans for consumption</div><div class="tip-body">Personal loans for phones, clothes, or holidays create debt traps. If you can't buy it from savings, you can't afford it. Exception: urgent medical needs.</div></div>
+    <div class="tip-card"><span class="tip-tag tag-banking">Banking</span><div class="tip-title">Check your CIBIL score every 3 months</div><div class="tip-body">A 750+ CIBIL score gets you lower interest rates on home loans — potentially saving ₹5–10L over the loan term. Check free at CIBIL, Experian, or CreditMantri.</div></div>
+    <div class="tip-card"><span class="tip-tag tag-banking">Banking</span><div class="tip-title">Automate bill payments, never miss a due date</div><div class="tip-body">A single missed credit card payment drops your CIBIL score by 50–100 points. Set auto-debit for minimum amount, always. Late fees and interest are pure waste.</div></div>
   </div>
 </section>
 
-<!-- ══════════ TAX GUIDE ══════════ -->
-<section id="tax" style="background:var(--bg2);max-width:100%;padding:5rem 2rem;">
-  <div style="max-width:1200px;margin:0 auto;">
+<!-- TAX GUIDE -->
+<section id="tax" style="background: var(--bg2); max-width: 100%; padding: 5rem 2rem;">
+  <div style="max-width: 1200px; margin: 0 auto;">
     <div class="section-label">Tax Planning</div>
     <h2 class="section-title">Tax-Saving Guide</h2>
-    <p class="section-sub" style="margin-bottom:2rem;">Legally reduce your tax burden. Click any card to read the full guide.</p>
-    <div class="tips-grid">
-      <div class="tip-card" onclick="openArticle('tax-80c')"><span class="tip-tag tag-tax">Tax</span><div class="tip-title">Section 80C — Save up to ₹46,800/year</div><div class="tip-body">Invest ₹1.5L in ELSS, PPF, NSC, LIC premium, or home loan principal. This alone saves ₹46,800/year at 30% slab. Don't leave this unclaimed.</div><div class="tip-read">Read full article →</div></div>
-      <div class="tip-card" onclick="openArticle('tax-80d')"><span class="tip-tag tag-tax">Tax</span><div class="tip-title">Section 80D — Medical Insurance Premium</div><div class="tip-body">₹25,000 deduction for self/family health insurance. Additional ₹25,000 (₹50,000 if senior) for parents' insurance. Get insurance anyway — the tax saving is a bonus.</div><div class="tip-read">Read full article →</div></div>
-      <div class="tip-card" onclick="openArticle('tax-80ccd')"><span class="tip-tag tag-tax">Tax</span><div class="tip-title">Section 80CCD(1B) — Extra NPS deduction</div><div class="tip-body">₹50,000 additional deduction beyond 80C by investing in NPS Tier 1. If you're in 30% slab, this saves ₹15,600 extra in taxes every year.</div><div class="tip-read">Read full article →</div></div>
-      <div class="tip-card" onclick="openArticle('tax-24b')"><span class="tip-tag tag-tax">Tax</span><div class="tip-title">Section 24B — Home Loan Interest</div><div class="tip-body">Deduct up to ₹2L interest paid on home loan under old regime. On a ₹30L loan, you likely pay ₹2.5L interest in early years — claim fully.</div><div class="tip-read">Read full article →</div></div>
-      <div class="tip-card" onclick="openArticle('tax-regime')"><span class="tip-tag tag-tax">Tax</span><div class="tip-title">New vs Old Regime — When to choose?</div><div class="tip-body">If your deductions (80C + 80D + HRA + home loan) exceed ₹3.75L, old regime saves more tax. Under that, choose the new regime. Calculate both before filing.</div><div class="tip-read">Read full article →</div></div>
-      <div class="tip-card" onclick="openArticle('tax-elss')"><span class="tip-tag tag-tax">Tax</span><div class="tip-title">ELSS — Best 80C option for most people</div><div class="tip-body">Equity Linked Savings Scheme has the shortest lock-in (3 years) among all 80C options and highest historical returns (12–18% CAGR). Choose a direct plan.</div><div class="tip-read">Read full article →</div></div>
+    <p class="section-sub" style="margin-bottom: 2rem;">Legally reduce your tax burden. Key sections every salaried person must know.</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem;">
+      <div class="tip-card"><span class="tip-tag tag-tax">Tax</span><div class="tip-title">Section 80C — Save up to ₹46,800/year</div><div class="tip-body">Invest ₹1.5L in ELSS (best returns), PPF, NSC, LIC premium, or home loan principal. This alone saves ₹46,800/year at 30% slab. Don't leave this unclaimed.</div></div>
+      <div class="tip-card"><span class="tip-tag tag-tax">Tax</span><div class="tip-title">Section 80D — Medical Insurance Premium</div><div class="tip-body">₹25,000 deduction for self/family health insurance. Additional ₹25,000 (₹50,000 if senior) for parents' insurance. Get insurance anyway — the tax saving is a bonus.</div></div>
+      <div class="tip-card"><span class="tip-tag tag-tax">Tax</span><div class="tip-title">Section 80CCD(1B) — Extra NPS deduction</div><div class="tip-body">₹50,000 additional deduction beyond 80C by investing in NPS Tier 1. If you're in 30% slab, this saves ₹15,600 extra in taxes every year.</div></div>
+      <div class="tip-card"><span class="tip-tag tag-tax">Tax</span><div class="tip-title">Section 24B — Home Loan Interest</div><div class="tip-body">Deduct up to ₹2L interest paid on home loan from your taxable income under old regime. On a ₹30L loan, you likely pay ₹2.5L interest in early years — claim fully.</div></div>
+      <div class="tip-card"><span class="tip-tag tag-tax">Tax</span><div class="tip-title">New vs Old Regime — When to choose?</div><div class="tip-body">If your deductions (80C + 80D + HRA + home loan) exceed ₹3.75L, old regime saves more tax. Under that, choose the new regime. Calculate both before filing.</div></div>
+      <div class="tip-card"><span class="tip-tag tag-tax">Tax</span><div class="tip-title">ELSS — Best 80C option for most people</div><div class="tip-body">Equity Linked Savings Scheme has the shortest lock-in (3 years) among all 80C options and highest historical returns (12–18% CAGR). Choose a direct plan for maximum gains.</div></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════ GLOSSARY ══════════ -->
+<!-- GLOSSARY -->
 <section id="glossary">
   <div class="section-label">Learn</div>
   <h2 class="section-title">Financial Terms Simplified</h2>
-  <p class="section-sub" style="margin-bottom:2rem;">No jargon. Plain language explanations for every common term.</p>
+  <p class="section-sub" style="margin-bottom: 2rem;">No jargon. Plain English explanations for every common term.</p>
   <div class="accordion">
     <div class="acc-item"><button class="acc-head" onclick="toggleAcc(this)">What is SIP? <span class="acc-arrow">▼</span></button><div class="acc-body">SIP (Systematic Investment Plan) is a method to invest a fixed amount in mutual funds every month — like a recurring deposit, but in the stock market. Even ₹500/month invested for 20 years at 12% returns becomes ₹50 lakhs. You don't need to time the market — you buy more units when markets fall (rupee cost averaging).</div></div>
-    <div class="acc-item"><button class="acc-head" onclick="toggleAcc(this)">What is CAGR? <span class="acc-arrow">▼</span></button><div class="acc-body">CAGR (Compound Annual Growth Rate) is the steady yearly rate at which an investment grew. If you invested ₹1 lakh in 2019 and it became ₹2 lakh in 2024, your CAGR is about 14.9%. It's the "smoothed" annual return, useful for comparing different investments.</div></div>
-    <div class="acc-item"><button class="acc-head" onclick="toggleAcc(this)">What is NAV in mutual funds? <span class="acc-arrow">▼</span></button><div class="acc-body">NAV (Net Asset Value) is the price of one unit of a mutual fund, calculated every day after market close. If a fund's NAV is ₹120 and you invest ₹12,000, you get 100 units. A low NAV doesn't mean the fund is cheap — it just means it's newer.</div></div>
-    <div class="acc-item"><button class="acc-head" onclick="toggleAcc(this)">What is CIBIL Score and how to improve it? <span class="acc-arrow">▼</span></button><div class="acc-body">CIBIL Score (300–900) measures your creditworthiness. 750+ is excellent. Based on: payment history (35%), credit utilization (30%), history length (15%), credit mix (10%), new enquiries (10%). Improve by paying all EMIs on time and keeping credit card usage below 30%.</div></div>
-    <div class="acc-item"><button class="acc-head" onclick="toggleAcc(this)">Difference between FD, RD, and Liquid Fund? <span class="acc-arrow">▼</span></button><div class="acc-body">FD: Lump sum for fixed tenure, 6–8% interest, penalty on early exit. RD: Monthly deposits, 5.5–7%, good for forced saving. Liquid Fund: No fixed tenure, 6.5–7.5% returns, money available in 1 business day. Best for emergency fund.</div></div>
-    <div class="acc-item"><button class="acc-head" onclick="toggleAcc(this)">What is expense ratio in mutual funds? <span class="acc-arrow">▼</span></button><div class="acc-body">Expense ratio is the annual fee the fund house charges to manage your money. A fund with 1.5% expense ratio charges ₹1,500/year per ₹1 lakh invested. Always prefer Direct Plans (0.1–0.5%) over Regular Plans (0.8–2%) — the difference compounds into lakhs over long periods.</div></div>
-    <div class="acc-item"><button class="acc-head" onclick="toggleAcc(this)">What is PPF and is it worth it? <span class="acc-arrow">▼</span></button><div class="acc-body">PPF (Public Provident Fund) is a government-backed savings scheme with 7.1% p.a. interest, 15-year lock-in, and complete tax exemption on investment, returns, and maturity (EEE status). The 15-year lock-in makes it ideal for retirement savings.</div></div>
-    <div class="acc-item"><button class="acc-head" onclick="toggleAcc(this)">What are LTCG and STCG taxes? <span class="acc-arrow">▼</span></button><div class="acc-body">For equity/equity MF: STCG (held &lt;1 year) taxed at 20%. LTCG (held &gt;1 year) above ₹1.25L taxed at 12.5%. For debt MF (post-April 2023): taxed at your income slab regardless of holding period. For property: LTCG (held &gt;2 years) at 20% with indexation.</div></div>
-    <div class="acc-item"><button class="acc-head" onclick="toggleAcc(this)">What is HRA and who can claim it? <span class="acc-arrow">▼</span></button><div class="acc-body">HRA (House Rent Allowance) is part of your salary given to help with rent. Salaried employees who pay rent can claim a portion as tax-free. The exempt amount = lowest of: actual HRA received, 50% of Basic (metro) or 40% (non-metro), or rent minus 10% of Basic.</div></div>
-    <div class="acc-item"><button class="acc-head" onclick="toggleAcc(this)">What is Section 80C? <span class="acc-arrow">▼</span></button><div class="acc-body">Section 80C lets you reduce your taxable income by up to ₹1,50,000/year by investing in approved instruments: ELSS, PPF, EPF, LIC premium, NSC, 5-year tax-saving FD, home loan principal, children's tuition fees, and Sukanya Samriddhi Yojana. At 30% slab, fully using 80C saves ₹46,800 every year.</div></div>
+    <div class="acc-item"><button class="acc-head" onclick="toggleAcc(this)">What is CAGR? <span class="acc-arrow">▼</span></button><div class="acc-body">CAGR (Compound Annual Growth Rate) is the steady yearly rate at which an investment grew. If you invested ₹1 lakh in 2019 and it became ₹2 lakh in 2024, your CAGR is about 14.9%. It's the "smoothed" annual return, useful for comparing different investments over different time periods.</div></div>
+    <div class="acc-item"><button class="acc-head" onclick="toggleAcc(this)">What is NAV in mutual funds? <span class="acc-arrow">▼</span></button><div class="acc-body">NAV (Net Asset Value) is the price of one unit of a mutual fund, calculated every day after market close. If a fund's NAV is ₹120 and you invest ₹12,000, you get 100 units. Returns are measured by how much NAV has grown. A low NAV doesn't mean the fund is cheap — it just means it's newer.</div></div>
+    <div class="acc-item"><button class="acc-head" onclick="toggleAcc(this)">What is CIBIL Score and how to improve it? <span class="acc-arrow">▼</span></button><div class="acc-body">CIBIL Score (300–900) measures your creditworthiness. 750+ is excellent. It's based on: payment history (35%), credit utilization (30%), credit history length (15%), credit mix (10%), new enquiries (10%). Improve it by: paying all EMIs and bills on time, keeping credit card usage below 30%, and not applying for multiple loans at once.</div></div>
+    <div class="acc-item"><button class="acc-head" onclick="toggleAcc(this)">Difference between FD, RD, and Liquid Fund? <span class="acc-arrow">▼</span></button><div class="acc-body">FD (Fixed Deposit): Lump sum for fixed tenure, 6–8% interest, penalty on early exit. Best for known future expenses. RD (Recurring Deposit): Monthly deposits, 5.5–7%, good for forced saving. Liquid Mutual Fund: No fixed tenure, 6.5–7.5% returns, money available in 1 business day. Best for emergency fund and idle cash.</div></div>
+    <div class="acc-item"><button class="acc-head" onclick="toggleAcc(this)">What is expense ratio in mutual funds? <span class="acc-arrow">▼</span></button><div class="acc-body">Expense ratio is the annual fee the fund house charges to manage your money, expressed as a percentage. A fund with 1.5% expense ratio charges ₹1,500/year per ₹1 lakh invested. Always prefer Direct Plans (0.1–0.5%) over Regular Plans (0.8–2%) — the difference compounds into lakhs over long periods.</div></div>
+    <div class="acc-item"><button class="acc-head" onclick="toggleAcc(this)">What is PPF and is it worth it? <span class="acc-arrow">▼</span></button><div class="acc-body">PPF (Public Provident Fund) is a government-backed savings scheme with 7.1% p.a. interest, 15-year lock-in, and complete tax exemption on investment, returns, and maturity (EEE status). No tax on the ₹1.5L/year limit under 80C. The 15-year lock-in makes it ideal for retirement savings alongside market investments.</div></div>
+    <div class="acc-item"><button class="acc-head" onclick="toggleAcc(this)">What are LTCG and STCG taxes? <span class="acc-arrow">▼</span></button><div class="acc-body">For equity/equity MF: STCG (held &lt;1 year) is taxed at 20%. LTCG (held &gt;1 year) above ₹1.25L is taxed at 12.5% (no indexation). For debt MF (post-April 2023): taxed at your income slab regardless of holding period. For property: LTCG (held &gt;2 years) at 20% with indexation.</div></div>
+    <div class="acc-item"><button class="acc-head" onclick="toggleAcc(this)">What is HRA and who can claim it? <span class="acc-arrow">▼</span></button><div class="acc-body">HRA (House Rent Allowance) is part of your salary given to help with rent. Salaried employees who pay rent can claim a portion as tax-free. The exempt amount = lowest of: actual HRA received, 50% of Basic salary (metro) or 40% (non-metro), or actual rent minus 10% of Basic. Self-employed people cannot claim HRA but can claim rent under Section 80GG.</div></div>
+    <div class="acc-item"><button class="acc-head" onclick="toggleAcc(this)">What is Section 80C? <span class="acc-arrow">▼</span></button><div class="acc-body">Section 80C is an income tax rule that lets you reduce your taxable income by up to ₹1,50,000 per year if you invest in approved instruments. These include: ELSS mutual funds, PPF, EPF, LIC premium, NSC, 5-year tax-saving FD, home loan principal, tuition fees for children, and Sukanya Samriddhi Yojana. At the 30% tax slab, using 80C fully saves you ₹46,800 every year.</div></div>
   </div>
 </section>
 
-<!-- ══════════ FOOTER ══════════ -->
+<!-- FOOTER -->
 <footer>
-  <div class="footer-logo">
-    <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#f5c842"/><path d="M6 24L12 16L18 20L26 9" stroke="#0b0f19" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="24" r="2" fill="#0b0f19"/><circle cx="26" cy="9" r="2" fill="#0b0f19"/></svg>
-    PlexCapital
-  </div>
+  <div class="footer-logo">PlexCapital</div>
   <div class="footer-links">
     <a href="#calculators">Calculators</a>
     <a href="#tips">Investment Tips</a>
-    <a href="#business">Business Ideas</a>
-    <a href="#banking">Banking</a>
     <a href="#tax">Tax Guide</a>
     <a href="#mfguide">MF Guide</a>
     <a href="#glossary">Glossary</a>
+    <a href="#business">Business Ideas</a>
   </div>
-  <div class="footer-disc">PlexCapital provides financial education and planning tools for informational purposes only. Nothing on this website constitutes investment or financial advice. All calculations are estimates. Always consult a SEBI-registered investment advisor before making financial decisions. Mutual fund investments are subject to market risks.</div>
+  <div class="footer-disc">
+    PlexCapital provides financial education and planning tools for informational purposes only. Nothing on this website constitutes investment or financial advice. All calculations are estimates. Always consult a SEBI-registered investment advisor before making financial decisions. Mutual fund investments are subject to market risks.
+  </div>
 </footer>
 
 <script>
-// ══════════ UTILS ══════════
-const fmt=n=>'₹'+Math.round(n).toLocaleString('en-IN');
-const pct=n=>n.toFixed(2)+'%';
-const cr=n=>{if(n>=10000000)return'₹'+(n/10000000).toFixed(2)+' Cr';if(n>=100000)return'₹'+(n/100000).toFixed(2)+' L';return fmt(n);};
-const el=id=>document.getElementById(id);
-const set=(id,val)=>{if(el(id))el(id).textContent=val;};
+  const fmt = (n) => '₹' + Math.round(n).toLocaleString('en-IN');
+  const pct = (n) => n.toFixed(2) + '%';
+  const cr = (n) => {
+    if (n >= 10000000) return '₹' + (n/10000000).toFixed(2) + ' Cr';
+    if (n >= 100000) return '₹' + (n/100000).toFixed(2) + ' L';
+    return fmt(n);
+  };
+  function el(id) { return document.getElementById(id); }
+  function set(id, val) { if(el(id)) el(id).textContent = val; }
 
-// ══════════ TAB SWITCHING ══════════
-function showTab(name,e){
-  document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.tool-tab').forEach(t=>t.classList.remove('active'));
-  el('tab-'+name).classList.add('active');
-  if(e&&e.target)e.target.classList.add('active');
-  if(name==='invest'){updateSIP();updateLS();updateCAGR();updateGoal();}
-  if(name==='loans'){updateHL();updateCL();updatePP();}
-  if(name==='tax'){updateIT();updateHRA();updateCG();}
-  if(name==='savings'){updateFD();updatePPF();updateRD();}
-}
+  // TAB SWITCHING
+  function showTab(name, e) {
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tool-tab').forEach(t => t.classList.remove('active'));
+    el('tab-' + name).classList.add('active');
+    if(e && e.target) e.target.classList.add('active');
+    if(name==='invest'){updateSIP();updateLS();updateCAGR();updateGoal();}
+    if(name==='loans'){updateHL();updateCL();updatePP();}
+    if(name==='tax'){updateIT();updateHRA();updateCG();}
+    if(name==='savings'){updateFD();updatePPF();updateRD();}
+  }
 
-// ══════════ ACCORDION ══════════
-function toggleAcc(btn){
-  const body=btn.nextElementSibling;
-  const arrow=btn.querySelector('.acc-arrow');
-  body.classList.toggle('open');
-  arrow.classList.toggle('open');
-}
+  // ACCORDION
+  function toggleAcc(btn) {
+    const body = btn.nextElementSibling;
+    const arrow = btn.querySelector('.acc-arrow');
+    body.classList.toggle('open');
+    arrow.classList.toggle('open');
+  }
 
-// ══════════ CALCULATORS ══════════
-function updateSIP(){
-  const mo=parseFloat(el('sip-amt').value);
-  const r=parseFloat(el('sip-rate').value)/100/12;
-  const n=parseInt(el('sip-yr').value)*12;
-  set('sip-amt-v','₹'+mo.toLocaleString('en-IN'));
-  set('sip-rate-v',el('sip-rate').value+'%');
-  set('sip-yr-v',el('sip-yr').value+' yrs');
-  const total=mo*(((Math.pow(1+r,n)-1)/r)*(1+r));
-  const invested=mo*n;
-  set('sip-inv',cr(invested));set('sip-ret',cr(total-invested));set('sip-total',cr(total));
-}
-function updateLS(){
-  const p=parseFloat(el('ls-amt').value)||0;
-  const r=parseFloat(el('ls-rate').value)/100;
-  const n=parseInt(el('ls-yr').value);
-  set('ls-rate-v',el('ls-rate').value+'%');set('ls-yr-v',n+' yrs');
-  const total=p*Math.pow(1+r,n);
-  set('ls-inv',cr(p));set('ls-gain',cr(total-p));set('ls-total',cr(total));
-}
-function updateCAGR(){
-  const init=parseFloat(el('cagr-init').value)||0;
-  const fin=parseFloat(el('cagr-final').value)||0;
-  const n=parseFloat(el('cagr-yr').value)||1;
-  if(init<=0||fin<=0)return;
-  const cagr=(Math.pow(fin/init,1/n)-1)*100;
-  const abs=((fin-init)/init)*100;
-  set('cagr-result',pct(cagr));set('cagr-abs',pct(abs));set('cagr-gain',cr(fin-init));
-}
-function updateGoal(){
-  const target=parseFloat(el('goal-target').value)||0;
-  const r=parseFloat(el('goal-rate').value)/100/12;
-  const n=parseInt(el('goal-yr').value)*12;
-  set('goal-rate-v',el('goal-rate').value+'%');set('goal-yr-v',el('goal-yr').value+' yrs');
-  const sip=target*r/(((Math.pow(1+r,n)-1)/r)*(1+r));
-  const inv=sip*n;
-  set('goal-sip',cr(sip));set('goal-inv',cr(inv));set('goal-wealth',cr(target-inv));
-}
-function emi(p,r,n){return p*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);}
-function updateHL(){
-  const p=parseFloat(el('hl-amt').value);
-  const r=parseFloat(el('hl-rate').value)/100/12;
-  const n=parseInt(el('hl-yr').value)*12;
-  set('hl-amt-v',p>=10000000?'₹'+(p/10000000).toFixed(1)+'Cr':'₹'+(p/100000).toFixed(0)+'L');
-  set('hl-rate-v',el('hl-rate').value+'%');set('hl-yr-v',el('hl-yr').value+' yrs');
-  const e=emi(p,r,n);const total=e*n;
-  set('hl-emi',fmt(e));set('hl-principal',cr(p));set('hl-interest',cr(total-p));set('hl-total',cr(total));
-}
-function updateCL(){
-  const p=parseFloat(el('cl-amt').value)||0;
-  const r=parseFloat(el('cl-rate').value)/100/12;
-  const n=parseInt(el('cl-mo').value);
-  set('cl-rate-v',el('cl-rate').value+'%');set('cl-mo-v',n+' mo');
-  const e=emi(p,r,n);const total=e*n;
-  set('cl-emi',fmt(e));set('cl-interest',cr(total-p));set('cl-total',cr(total));
-}
-function updatePP(){
-  const loan=parseFloat(el('pp-loan').value)||0;
-  const r=parseFloat(el('pp-rate').value)/100/12;
-  const n=parseInt(el('pp-yr').value)*12;
-  const prepay=parseFloat(el('pp-amt').value)||0;
-  set('pp-rate-v',el('pp-rate').value+'%');set('pp-yr-v',el('pp-yr').value+' yrs');
-  const e=emi(loan,r,n);
-  const totalOld=e*n;
-  const newLoan=loan-prepay;
-  let rem=newLoan,months=0;
-  while(rem>0&&months<n){rem=rem+rem*r-e;months++;}
-  const saved=totalOld-(e*months);
-  const monthsSaved=n-months;
-  set('pp-saved',cr(Math.max(0,saved)));
-  set('pp-tenure',Math.max(0,Math.round(monthsSaved/12))+' yrs '+(Math.max(0,monthsSaved)%12)+' mo');
-}
-function calcNewTax(income){
-  const slabs=[[0,300000,0],[300000,700000,.05],[700000,1000000,.1],[1000000,1200000,.15],[1200000,1500000,.2],[1500000,Infinity,.3]];
-  let tax=0;
-  for(const[low,high,rate]of slabs){if(income<=low)break;tax+=(Math.min(income,high)-low)*rate;}
-  if(income<=700000)tax=0;
-  return tax;
-}
-function calcOldTax(income){
-  const slabs=[[0,250000,0],[250000,500000,.05],[500000,1000000,.2],[1000000,Infinity,.3]];
-  let tax=0;
-  for(const[low,high,rate]of slabs){if(income<=low)break;tax+=(Math.min(income,high)-low)*rate;}
-  if(tax<=12500)tax=0;
-  return tax;
-}
-function updateIT(){
-  const gross=parseFloat(el('it-income').value)||0;
-  const regime=el('it-regime').value;
-  const c80c=parseFloat(el('it-80c').value)||0;
-  const hra=parseFloat(el('it-hra').value)||0;
-  let deductions=regime==='old'?Math.min(c80c,150000)+hra+50000:75000;
-  const taxable=Math.max(0,gross-deductions);
-  const baseTax=regime==='new'?calcNewTax(taxable):calcOldTax(taxable);
-  const totalTax=baseTax*1.04;
-  const effRate=gross>0?(totalTax/gross*100):0;
-  set('it-gross',cr(gross));set('it-deduct',cr(deductions));set('it-taxable',cr(taxable));
-  set('it-tax',cr(totalTax));set('it-rate',pct(effRate));set('it-monthly',cr((gross-totalTax)/12));
-}
-function updateHRA(){
-  const basic=parseFloat(el('hra-basic').value)||0;
-  const recv=parseFloat(el('hra-recv').value)||0;
-  const rent=parseFloat(el('hra-rent').value)||0;
-  const metro=el('hra-city').value==='metro';
-  const exempt=Math.min(recv,basic*(metro?.5:.4),Math.max(0,rent-basic*.1));
-  set('hra-exempt',fmt(exempt)+'/mo');
-  set('hra-taxable',fmt(recv-exempt)+'/mo');
-  set('hra-saved',cr(exempt*12*.3));
-}
-function updateCG(){
-  const buy=parseFloat(el('cg-buy').value)||0;
-  const sell=parseFloat(el('cg-sell').value)||0;
-  const type=el('cg-type').value;
-  const period=el('cg-period').value;
-  const profit=sell-buy;
-  let rate=0,label='';
-  if(type==='equity'){if(period==='st'){rate=.20;label='STCG @ 20%';}else{label='LTCG @ 12.5% (above ₹1.25L)';}}
-  else if(type==='debt'){rate=.30;label='Slab rate ~30%';}
-  else{if(period==='st'){rate=.30;label='STCG @ slab';}else{rate=.20;label='LTCG @ 20% with indexation';}}
-  let tax=0;
-  if(type==='equity'&&period==='lt')tax=Math.max(0,profit-125000)*.125;
-  else tax=Math.max(0,profit)*rate;
-  set('cg-profit',cr(profit));set('cg-rate',label);set('cg-tax',cr(tax));set('cg-net',cr(Math.max(0,profit)-tax));
-}
-function updateFD(){
-  const p=parseFloat(el('fd-amt').value)||0;
-  const r=parseFloat(el('fd-rate').value)/100;
-  const t=parseInt(el('fd-yr').value);
-  const n=parseInt(el('fd-comp').value);
-  set('fd-rate-v',el('fd-rate').value+'%');set('fd-yr-v',t+' yrs');
-  const total=p*Math.pow(1+r/n,n*t);
-  set('fd-principal',cr(p));set('fd-interest',cr(total-p));set('fd-total',cr(total));
-}
-function updatePPF(){
-  const annual=parseFloat(el('ppf-amt').value);
-  const yrs=parseInt(el('ppf-yr').value);
-  set('ppf-amt-v','₹'+annual.toLocaleString('en-IN'));set('ppf-yr-v',yrs+' yrs');
-  let bal=0;for(let i=0;i<yrs;i++){bal=(bal+annual)*(1+.071);}
-  set('ppf-inv',cr(annual*yrs));set('ppf-int',cr(bal-annual*yrs));set('ppf-total',cr(bal));
-}
-function updateRD(){
-  const mo=parseFloat(el('rd-amt').value)||0;
-  const r=parseFloat(el('rd-rate').value)/100/4;
-  const months=parseInt(el('rd-mo').value);
-  set('rd-rate-v',el('rd-rate').value+'%');set('rd-mo-v',months+' mo');
-  let total=0;
-  for(let i=1;i<=months;i++){total+=mo*Math.pow(1+r,(months-i+1)/3);}
-  set('rd-inv',cr(mo*months));set('rd-int',cr(total-mo*months));set('rd-total',cr(total));
-}
+  // SIP
+  function updateSIP() {
+    const mo = parseFloat(el('sip-amt').value);
+    const r = parseFloat(el('sip-rate').value) / 100 / 12;
+    const n = parseInt(el('sip-yr').value) * 12;
+    set('sip-amt-v', '₹' + mo.toLocaleString('en-IN'));
+    set('sip-rate-v', el('sip-rate').value + '%');
+    set('sip-yr-v', el('sip-yr').value + ' yrs');
+    const total = mo * (((Math.pow(1+r, n) - 1) / r) * (1 + r));
+    const invested = mo * n;
+    set('sip-inv', cr(invested));
+    set('sip-ret', cr(total - invested));
+    set('sip-total', cr(total));
+  }
 
-// ══════════ ARTICLE DATA ══════════
-const ARTICLES = {
-'tip-sip-500':{
-  tag:'Investing',tagClass:'tag-invest',readTime:'5 min read',
-  title:'Start SIP with Even ₹500/Month',
-  lead:'Most people never start investing because they think they need a large amount. The truth: ₹500 is enough — and starting now is infinitely better than waiting for more.',
-  body:`<h2>Why Small Amounts Work</h2>
-<p>Compounding is often called the eighth wonder of the world — and SIP is its most practical application. When you invest ₹500 every month and your fund earns 12% annually, after 30 years you will have accumulated over <strong>₹17 lakhs from just ₹1.8 lakhs invested</strong>. That's nearly 10× growth, entirely driven by time, not amount.</p>
-<p>The mathematics of compounding is simple: your returns start earning their own returns. In year 1, you earn returns on your investment. In year 2, you earn returns on your investment plus last year's returns. This snowballs silently and becomes dramatic over decades.</p>
-<h2>How to Start Today</h2>
-<p>Opening a mutual fund account takes under 15 minutes. Platforms like Groww, Zerodha Coin, or Paytm Money allow you to start a SIP with as little as ₹100/month in most funds. You will need:</p>
-<ul><li>Your PAN card</li><li>Aadhaar for KYC verification</li><li>A bank account linked for auto-debit</li></ul>
-<p>Once set up, the SIP runs automatically on a date you choose. The money is debited and invested without any action from you every month.</p>
-<h2>The Step-Up Strategy</h2>
-<p>When your salary grows by 10%, increase your SIP by 10%. This single habit can more than double your final corpus compared to keeping a flat SIP. If you start with ₹500 and step up 10% every year, after 25 years your corpus is dramatically larger than someone who always invested ₹1,000 flat but never increased it.</p>
-<div class='art-callout'><b>Real Example</b><p>₹500/month flat at 12% for 30 years = ₹17.6 Lakhs. But ₹500/month with 10% annual step-up at 12% = ₹56 Lakhs. Same starting point — 3× the result.</p></div>
-<h2>The Most Expensive Mistake: Waiting</h2>
-<p>The biggest mistake Indian investors make is waiting — waiting for more salary, waiting for markets to fall, waiting for the "right time". Every year you delay costs you more than any amount of extra investment can recover. The best time to start was yesterday. The second best time is today.</p>
-<div class='art-takeaway'><div class='art-takeaway-label'>Key Takeaways</div><ul><li>₹500/month for 30 years at 12% = ₹17+ Lakhs</li><li>Start immediately on Groww, Zerodha Coin, or Paytm Money</li><li>Increase your SIP by 10% every year with your salary hike</li><li>Never wait for the "perfect amount" — start with whatever you have today</li></ul></div>`
-},
-'tip-index-funds':{
-  tag:'Investing',tagClass:'tag-invest',readTime:'6 min read',
-  title:'Index Funds Beat Most Active Funds Long-Term',
-  lead:'You pay fund managers to beat the market, but over 10 years, 80% of them fail to do so. Index funds quietly outperform by doing nothing but tracking the market.',
-  body:`<h2>What is an Index Fund?</h2>
-<p>An index fund doesn't try to pick winning stocks. Instead, it simply buys all the stocks in an index like Nifty 50 in the same proportions. When Nifty goes up 15%, the index fund goes up ~15%. It requires no fund manager research or decisions.</p>
-<h2>Why Passive Beats Active</h2>
-<p>Active mutual funds have brilliant managers who research companies extensively. Yet over a 10-year period, <strong>more than 80% of actively managed large-cap funds in India underperform the Nifty 50</strong>. Why? Three main reasons:</p>
-<ul><li><strong>Expense ratio:</strong> Active funds charge 1–2% per year. Index funds charge 0.1–0.2%. That 1% difference compounds into lakhs over 20 years.</li><li><strong>Market efficiency:</strong> Millions of smart traders and algorithms already price stocks efficiently. It's very hard to consistently find mispriced stocks.</li><li><strong>Manager risk:</strong> A great manager may leave the fund. Their strategy may stop working. With an index fund, there's no single point of failure.</li></ul>
-<div class='art-callout'><b>The Math</b><p>₹10L invested at 14% (index) for 20 years = ₹1.37 Crore. Same amount at 12% (active fund after 2% expense ratio) = ₹96L. The 2% difference costs you ₹41 Lakhs.</p></div>
-<h2>How to Choose an Index Fund</h2>
-<ul><li><strong>Choose the index:</strong> Nifty 50 (large companies, lower risk) or Nifty Midcap 150 (medium companies, higher potential).</li><li><strong>Expense ratio:</strong> Choose the fund with the lowest expense ratio among options tracking the same index.</li><li><strong>Direct Plan only:</strong> Always choose Direct Plan over Regular Plan to avoid distributor commissions.</li><li><strong>Tracking error:</strong> Lower tracking error = fund follows the index more accurately.</li></ul>
-<h2>When Active Funds Can Win</h2>
-<p>Active funds can still make sense for small-cap and mid-cap categories, where markets are less efficient and skilled managers can find genuine opportunities. For large-cap, index funds almost always win over the long term.</p>
-<div class='art-takeaway'><div class='art-takeaway-label'>Key Takeaways</div><ul><li>80%+ of active large-cap funds underperform Nifty 50 over 10 years</li><li>Lower expense ratio = more money in your pocket over time</li><li>Always pick Direct Plan, never Regular Plan</li><li>Nifty 50 index fund is the best starting investment for most Indians</li></ul></div>`
-},
-'tip-asset-alloc':{
-  tag:'Investing',tagClass:'tag-invest',readTime:'5 min read',
-  title:'Asset Allocation: The Only Free Lunch in Investing',
-  lead:'You cannot predict which asset class will win each year. But by owning all of them in the right proportions, you can earn consistent returns and sleep well during crashes.',
-  body:`<h2>What is Asset Allocation?</h2>
-<p>Asset allocation means dividing your money across different types of investments — equity (stocks), debt (bonds), and gold. These asset classes often move in opposite directions. When stocks crash, gold often rises. When bonds fall, stocks may rise. Owning all three smooths out your overall returns.</p>
-<h2>The Classic 60-30-10 Rule</h2>
-<ul><li><strong>60% Equity:</strong> Mutual funds or index funds. This drives your long-term growth. Over 20 years, equity has historically given 12–15% CAGR.</li><li><strong>30% Debt:</strong> PPF, bonds, or debt mutual funds. This is your stability. When equity crashes 40%, your debt holds steady.</li><li><strong>10% Gold:</strong> Sovereign Gold Bonds or Gold ETFs. Gold tends to rise when everything else falls, acting as portfolio insurance.</li></ul>
-<h2>Rebalancing: The Key Step Everyone Skips</h2>
-<p>Over a year, equity may grow from 60% to 70% of your portfolio while debt shrinks. This means your risk has increased silently. Rebalancing means selling some equity and buying debt/gold to get back to your target allocation. Do this once a year on the same date.</p>
-<div class='art-callout'><b>Why Rebalancing Works</b><p>It forces you to sell high (equity after it has grown) and buy low (debt/gold when cheap). This is exactly the opposite of what emotions push you to do — and it beats most strategies.</p></div>
-<h2>Adjusting for Age</h2>
-<p>A 25-year-old can afford more risk — 80% equity makes sense. A 55-year-old needs stability — 40% equity and 60% debt is safer. A simple rule: subtract your age from 100 and that's your equity percentage. Age 30 = 70% equity.</p>
-<div class='art-takeaway'><div class='art-takeaway-label'>Key Takeaways</div><ul><li>60% equity, 30% debt, 10% gold is a solid starting allocation</li><li>Rebalance every year — this is where most wealth is protected</li><li>Younger investors can afford more equity; older investors need more debt</li><li>Gold is portfolio insurance, not a growth investment</li></ul></div>`
-},
-'tip-time-market':{
-  tag:'Investing',tagClass:'tag-invest',readTime:'5 min read',
-  title:'Never Time the Market — Time IN the Market is What Matters',
-  lead:'Every crash feels different. Every rally feels like it will end. But the data is clear: investors who stay invested always beat those who try to be clever about timing.',
-  body:`<h2>Why Market Timing Fails</h2>
-<p>To successfully time the market, you need to be right twice — when to sell and when to buy back. Professional fund managers with enormous research teams and decades of experience consistently fail to do this. What chance does an individual investor have?</p>
-<p>A famous study of the US market (which applies equally to India) showed that if you missed just the <strong>10 best trading days</strong> of the Nifty 50 over 20 years, your returns were cut in half. Miss the best 30 days and you barely broke even.</p>
-<h2>What Actually Happens During Crashes</h2>
-<p>During every major
+  // LUMPSUM
+  function updateLS() {
+    const p = parseFloat(el('ls-amt').value) || 0;
+    const r = parseFloat(el('ls-rate').value) / 100;
+    const n = parseInt(el('ls-yr').value);
+    set('ls-rate-v', el('ls-rate').value + '%');
+    set('ls-yr-v', n + ' yrs');
+    const total = p * Math.pow(1 + r, n);
+    set('ls-inv', cr(p));
+    set('ls-gain', cr(total - p));
+    set('ls-total', cr(total));
+  }
+
+  // CAGR
+  function updateCAGR() {
+    const init = parseFloat(el('cagr-init').value) || 0;
+    const fin = parseFloat(el('cagr-final').value) || 0;
+    const n = parseFloat(el('cagr-yr').value) || 1;
+    if(init <= 0 || fin <= 0) return;
+    const cagr = (Math.pow(fin/init, 1/n) - 1) * 100;
+    const abs = ((fin - init) / init) * 100;
+    set('cagr-result', pct(cagr));
+    set('cagr-abs', pct(abs));
+    set('cagr-gain', cr(fin - init));
+  }
+
+  // GOAL SIP
+  function updateGoal() {
+    const target = parseFloat(el('goal-target').value) || 0;
+    const r = parseFloat(el('goal-rate').value) / 100 / 12;
+    const n = parseInt(el('goal-yr').value) * 12;
+    set('goal-rate-v', el('goal-rate').value + '%');
+    set('goal-yr-v', el('goal-yr').value + ' yrs');
+    const sip = target * r / (((Math.pow(1+r, n) - 1) / r) * (1 + r));
+    const inv = sip * n;
+    set('goal-sip', cr(sip));
+    set('goal-inv', cr(inv));
+    set('goal-wealth', cr(target - inv));
+  }
+
+  // EMI helper
+  function emi(p, r, n) { return p * r * Math.pow(1+r, n) / (Math.pow(1+r, n) - 1); }
+
+  // HOME LOAN
+  function updateHL() {
+    const p = parseFloat(el('hl-amt').value);
+    const r = parseFloat(el('hl-rate').value) / 100 / 12;
+    const n = parseInt(el('hl-yr').value) * 12;
+    set('hl-amt-v', p >= 10000000 ? '₹' + (p/10000000).toFixed(1) + 'Cr' : '₹' + (p/100000).toFixed(0) + 'L');
+    set('hl-rate-v', el('hl-rate').value + '%');
+    set('hl-yr-v', el('hl-yr').value + ' yrs');
+    const e = emi(p, r, n);
+    const total = e * n;
+    set('hl-emi', fmt(e));
+    set('hl-principal', cr(p));
+    set('hl-interest', cr(total - p));
+    set('hl-total', cr(total));
+  }
+
+  // CAR LOAN
+  function updateCL() {
+    const p = parseFloat(el('cl-amt').value) || 0;
+    const r = parseFloat(el('cl-rate').value) / 100 / 12;
+    const n = parseInt(el('cl-mo').value);
+    set('cl-rate-v', el('cl-rate').value + '%');
+    set('cl-mo-v', n + ' mo');
+    const e = emi(p, r, n);
+    const total = e * n;
+    set('cl-emi', fmt(e));
+    set('cl-interest', cr(total - p));
+    set('cl-total', cr(total));
+  }
+
+  // PREPAYMENT
+  function updatePP() {
+    const loan = parseFloat(el('pp-loan').value) || 0;
+    const r = parseFloat(el('pp-rate').value) / 100 / 12;
+    const n = parseInt(el('pp-yr').value) * 12;
+    const prepay = parseFloat(el('pp-amt').value) || 0;
+    set('pp-rate-v', el('pp-rate').value + '%');
+    set('pp-yr-v', el('pp-yr').value + ' yrs');
+    const e = emi(loan, r, n);
+    const totalOld = e * n;
+    const newLoan = loan - prepay;
+    let rem2 = newLoan;
+    let months = 0;
+    while(rem2 > 0 && months < n) {
+      rem2 = rem2 + rem2 * r - e;
+      months++;
+    }
+    const totalNew = e * months;
+    const saved = totalOld - totalNew;
+    const monthsSaved = n - months;
+    set('pp-saved', cr(Math.max(0, saved)));
+    set('pp-tenure', Math.max(0, Math.round(monthsSaved/12)) + ' yrs ' + (Math.max(0,monthsSaved) % 12) + ' mo');
+  }
+
+  // INCOME TAX
+  function calcNewTax(income) {
+    const slabs = [[0,300000,0],[300000,700000,0.05],[700000,1000000,0.1],[1000000,1200000,0.15],[1200000,1500000,0.2],[1500000,Infinity,0.3]];
+    let tax = 0;
+    for(const [low,high,rate] of slabs) {
+      if(income <= low) break;
+      tax += (Math.min(income, high) - low) * rate;
+    }
+    if(income <= 700000) tax = 0;
+    return tax;
+  }
+  function calcOldTax(income) {
+    const slabs = [[0,250000,0],[250000,500000,0.05],[500000,1000000,0.2],[1000000,Infinity,0.3]];
+    let tax = 0;
+    for(const [low,high,rate] of slabs) {
+      if(income <= low) break;
+      tax += (Math.min(income, high) - low) * rate;
+    }
+    if(tax <= 12500) tax = 0;
+    return tax;
+  }
+  function updateIT() {
+    const gross = parseFloat(el('it-income').value) || 0;
+    const regime = el('it-regime').value;
+    const c80c = parseFloat(el('it-80c').value) || 0;
+    const hra = parseFloat(el('it-hra').value) || 0;
+    let deductions = 0;
+    if(regime === 'old') deductions = Math.min(c80c, 150000) + hra + 50000;
+    else deductions = 75000;
+    const taxable = Math.max(0, gross - deductions);
+    const baseTax = regime === 'new' ? calcNewTax(taxable) : calcOldTax(taxable);
+    const cess = baseTax * 0.04;
+    const totalTax = baseTax + cess;
+    const effRate = gross > 0 ? (totalTax / gross * 100) : 0;
+    set('it-gross', cr(gross));
+    set('it-deduct', cr(deductions));
+    set('it-taxable', cr(taxable));
+    set('it-tax', cr(totalTax));
+    set('it-rate', pct(effRate));
+    set('it-monthly', cr((gross - totalTax) / 12));
+  }
+
+  // HRA
+  function updateHRA() {
+    const basic = parseFloat(el('hra-basic').value) || 0;
+    const recv = parseFloat(el('hra-recv').value) || 0;
+    const rent = parseFloat(el('hra-rent').value) || 0;
+    const metro = el('hra-city').value === 'metro';
+    const a = recv;
+    const b = basic * (metro ? 0.5 : 0.4);
+    const c = Math.max(0, rent - basic * 0.1);
+    const exempt = Math.min(a, b, c);
+    const taxable = recv - exempt;
+    set('hra-exempt', fmt(exempt) + '/mo');
+    set('hra-taxable', fmt(taxable) + '/mo');
+    set('hra-saved', cr(exempt * 12 * 0.3));
+  }
+
+  // CAPITAL GAINS
+  function updateCG() {
+    const buy = parseFloat(el('cg-buy').value) || 0;
+    const sell = parseFloat(el('cg-sell').value) || 0;
+    const type = el('cg-type').value;
+    const period = el('cg-period').value;
+    const profit = sell - buy;
+    let rate = 0, label = '';
+    if(type === 'equity') {
+      if(period === 'st') { rate = 0.20; label = 'STCG @ 20%'; }
+      else { label = 'LTCG @ 12.5% (above ₹1.25L)'; }
+    } else if(type === 'debt') {
+      rate = 0.30; label = 'Slab rate ~30%';
+    } else {
+      if(period === 'st') { rate = 0.30; label = 'STCG @ slab'; }
+      else { rate = 0.20; label = 'LTCG @ 20% (with indexation)'; }
+    }
+    let tax = 0;
+    if(type === 'equity' && period === 'lt') tax = Math.max(0, profit - 125000) * 0.125;
+    else tax = Math.max(0, profit) * rate;
+    set('cg-profit', cr(profit));
+    set('cg-rate', label);
+    set('cg-tax', cr(tax));
+    set('cg-net', cr(Math.max(0, profit) - tax));
+  }
+
+  // FD
+  function updateFD() {
+    const p = parseFloat(el('fd-amt').value) || 0;
+    const r = parseFloat(el('fd-rate').value) / 100;
+    const t = parseInt(el('fd-yr').value);
+    const n = parseInt(el('fd-comp').value);
+    set('fd-rate-v', el('fd-rate').value + '%');
+    set('fd-yr-v', t + ' yrs');
+    const total = p * Math.pow(1 + r/n, n*t);
+    set('fd-principal', cr(p));
+    set('fd-interest', cr(total - p));
+    set('fd-total', cr(total));
+  }
+
+  // PPF
+  function updatePPF() {
+    const annual = parseFloat(el('ppf-amt').value);
+    const yrs = parseInt(el('ppf-yr').value);
+    const r = 0.071;
+    set('ppf-amt-v', '₹' + annual.toLocaleString('en-IN'));
+    set('ppf-yr-v', yrs + ' yrs');
+    let balance = 0;
+    for(let i = 0; i < yrs; i++) { balance = (balance + annual) * (1 + r); }
+    set('ppf-inv', cr(annual * yrs));
+    set('ppf-int', cr(balance - annual * yrs));
+    set('ppf-total', cr(balance));
+  }
+
+  // RD
+  function updateRD() {
+    const mo = parseFloat(el('rd-amt').value) || 0;
+    const r = parseFloat(el('rd-rate').value) / 100 / 4;
+    const months = parseInt(el('rd-mo').value);
+    set('rd-rate-v', el('rd-rate').value + '%');
+    set('rd-mo-v', months + ' mo');
+    let total = 0;
+    for(let i = 1; i <= months; i++) {
+      total += mo * Math.pow(1 + r, (months - i + 1) / 3);
+    }
+    set('rd-inv', cr(mo * months));
+    set('rd-int', cr(total - mo * months));
+    set('rd-total', cr(total));
+  }
+
+  // INIT
+  updateSIP(); updateLS(); updateCAGR(); updateGoal();
+  updateHL(); updateCL(); updatePP();
+  updateIT(); updateHRA(); updateCG();
+  updateFD(); updatePPF(); updateRD();
+</script>
+</body>
+</html>
